@@ -1,0 +1,24 @@
+{
+  "name": "ImgurGalleryItem",
+  "description": "Field-level documentation of an item in the Imgur public gallery.",
+  "fields": [
+    { "name": "id", "type": "string", "required": true },
+    { "name": "title", "type": "string", "required": true, "description": "Gallery submissions must have a title." },
+    { "name": "description", "type": "string|null" },
+    { "name": "datetime", "type": "integer" },
+    { "name": "cover", "type": "string|null", "description": "Image hash used as the cover when item is an album." },
+    { "name": "account_url", "type": "string" },
+    { "name": "account_id", "type": "integer" },
+    { "name": "views", "type": "integer" },
+    { "name": "link", "type": "string" },
+    { "name": "ups", "type": "integer" },
+    { "name": "downs", "type": "integer" },
+    { "name": "points", "type": "integer", "description": "ups - downs." },
+    { "name": "score", "type": "integer", "description": "Imgur's ranking score." },
+    { "name": "is_album", "type": "boolean" },
+    { "name": "comment_count", "type": "integer" },
+    { "name": "topic", "type": "string|null" },
+    { "name": "topic_id", "type": "integer|null" },
+    { "name": "tags", "type": "ImgurTag[]" }
+  ]
+}

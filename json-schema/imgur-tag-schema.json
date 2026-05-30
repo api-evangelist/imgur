@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/imgur/json-schema/imgur-tag-schema.json",
+  "title": "Imgur Tag",
+  "description": "A tag applied to gallery items.",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "name": { "type": "string" },
+    "display_name": { "type": "string" },
+    "followers": { "type": "integer" },
+    "total_items": { "type": "integer" },
+    "following": { "type": "boolean" },
+    "background_hash": { "type": "string" },
+    "thumbnail_hash": { "type": ["string", "null"] },
+    "accent": { "type": ["string", "null"] },
+    "background_is_animated": { "type": "boolean" },
+    "thumbnail_is_animated": { "type": "boolean" },
+    "is_promoted": { "type": "boolean" },
+    "description": { "type": "string" },
+    "logo_hash": { "type": ["string", "null"] },
+    "logo_destination_url": { "type": ["string", "null"] }
+  }
+}

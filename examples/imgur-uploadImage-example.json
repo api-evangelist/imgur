@@ -1,0 +1,38 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.imgur.com/3/image",
+    "headers": {
+      "Authorization": "Client-ID YOUR_CLIENT_ID",
+      "Content-Type": "multipart/form-data"
+    },
+    "body": {
+      "image": "<base64 or binary file>",
+      "type": "base64",
+      "title": "Sunset over the bay",
+      "description": "Captured 2026-05-30 with a Fujifilm X-T5."
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "id": "ABC1234",
+        "title": "Sunset over the bay",
+        "description": "Captured 2026-05-30 with a Fujifilm X-T5.",
+        "datetime": 1748563200,
+        "type": "image/jpeg",
+        "animated": false,
+        "width": 4032,
+        "height": 3024,
+        "size": 1843271,
+        "views": 0,
+        "bandwidth": 0,
+        "deletehash": "deleteXyz12",
+        "link": "https://i.imgur.com/ABC1234.jpg"
+      },
+      "success": true,
+      "status": 200
+    }
+  }
+}

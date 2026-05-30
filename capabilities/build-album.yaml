@@ -1,0 +1,33 @@
+apiVersion: naftiko.dev/v1alpha1
+kind: CapabilityWorkflow
+metadata:
+  name: build-album
+  title: Build An Album From Multiple Images
+  description: Upload a batch of images, create an album that contains them, and return the album link.
+spec:
+  inputs:
+    - name: images
+      description: Array of image file paths or URLs to upload.
+    - name: albumTitle
+      description: Title of the resulting album.
+    - name: privacy
+      description: "Album privacy: public, hidden, or secret."
+  steps:
+    - id: uploadAll
+      foreach: "{{ inputs.images }}"
+      use: imgur/upload-image
+      with:
+        image: "{{ item }}"
+        type: url
+      output: uploaded
+    - id: createAlbum
+      use: imgur/create-album
+      with:
+        title: "{{ inputs.albumTitle }}"
+        privacy: "{{ inputs.privacy | default: 'public' }}"
+        ids: "{{ uploaded[*].data.id }}"
+      output: album
+  outputs:
+    albumId: "{{ album.data.id }}"
+    albumLink: "https://imgur.com/a/{{ album.data.id }}"
+    deletehash: "{{ album.data.deletehash }}"

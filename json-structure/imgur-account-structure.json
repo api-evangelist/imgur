@@ -1,0 +1,16 @@
+{
+  "name": "ImgurAccount",
+  "description": "Field-level documentation of the Imgur Account resource.",
+  "fields": [
+    { "name": "id", "type": "integer", "required": true },
+    { "name": "url", "type": "string", "required": true, "description": "Account username." },
+    { "name": "bio", "type": "string|null" },
+    { "name": "avatar", "type": "string|null" },
+    { "name": "cover", "type": "string|null" },
+    { "name": "reputation", "type": "number", "description": "Lifetime reputation score." },
+    { "name": "reputation_name", "type": "string", "description": "Reputation tier label: Forever Alone, Neutral, Liked, Trusted, Idolized, Renowned, Glorious." },
+    { "name": "created", "type": "integer" },
+    { "name": "pro_expiration", "type": "integer|null", "description": "Imgur Pro expiry (legacy)." },
+    { "name": "is_blocked", "type": "boolean" }
+  ]
+}

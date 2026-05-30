@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.imgur.com/3/image/ABC1234",
+    "headers": {
+      "Authorization": "Client-ID YOUR_CLIENT_ID"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "id": "ABC1234",
+        "title": "Sunset over the bay",
+        "description": null,
+        "datetime": 1748563200,
+        "type": "image/jpeg",
+        "animated": false,
+        "width": 4032,
+        "height": 3024,
+        "size": 1843271,
+        "views": 482,
+        "bandwidth": 888056122,
+        "link": "https://i.imgur.com/ABC1234.jpg",
+        "is_album": false
+      },
+      "success": true,
+      "status": 200
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ImgurImage",
+  "description": "Field-level documentation of the Imgur Image resource.",
+  "fields": [
+    { "name": "id", "type": "string", "required": true, "description": "Seven-character image hash that identifies the image globally." },
+    { "name": "title", "type": "string|null", "description": "Display title chosen by the uploader; may be null." },
+    { "name": "description", "type": "string|null", "description": "Long-form description of the image." },
+    { "name": "datetime", "type": "integer", "description": "Unix epoch upload timestamp." },
+    { "name": "type", "type": "string", "description": "MIME type of the stored asset (image/jpeg, image/png, image/gif, video/mp4)." },
+    { "name": "animated", "type": "boolean", "description": "True if the asset is animated GIF or MP4." },
+    { "name": "width", "type": "integer", "description": "Original pixel width." },
+    { "name": "height", "type": "integer", "description": "Original pixel height." },
+    { "name": "size", "type": "integer", "description": "Stored size in bytes." },
+    { "name": "views", "type": "integer", "description": "Total number of views recorded by Imgur." },
+    { "name": "bandwidth", "type": "integer", "description": "Total bytes served (views * size)." },
+    { "name": "vote", "type": "string|null", "description": "Authenticated user's vote: up, down, or null." },
+    { "name": "favorite", "type": "boolean", "description": "Whether the authenticated user has favorited the image." },
+    { "name": "nsfw", "type": "boolean|null", "description": "Whether the image is flagged not-safe-for-work." },
+    { "name": "deletehash", "type": "string", "description": "Anonymous deletion token returned only on upload." },
+    { "name": "link", "type": "string", "description": "Public CDN URL of the image (https://i.imgur.com/{id}.{ext})." }
+  ]
+}

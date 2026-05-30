@@ -1,0 +1,33 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.imgur.com/3/album/ALB9876",
+    "headers": {
+      "Authorization": "Client-ID YOUR_CLIENT_ID"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "id": "ALB9876",
+        "title": "Road trip",
+        "description": "California coast, May 2026.",
+        "datetime": 1748400000,
+        "cover": "ABC1234",
+        "cover_width": 4032,
+        "cover_height": 3024,
+        "account_url": "kinlane",
+        "account_id": 123456,
+        "privacy": "public",
+        "layout": "blog",
+        "views": 1024,
+        "link": "https://imgur.com/a/ALB9876",
+        "images_count": 12,
+        "images": []
+      },
+      "success": true,
+      "status": 200
+    }
+  }
+}

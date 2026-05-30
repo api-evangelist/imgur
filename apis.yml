@@ -1,32 +1,210 @@
 aid: imgur
 name: Imgur
-description: "Images"
+description: >-
+  Imgur is a popular image and album hosting platform whose REST API (v3) exposes the
+  full platform — upload, retrieve, vote, comment, gallery, account, tags, topics — over
+  HTTP/JSON. Anonymous reads/writes are supported with a Client-ID; per-user actions use
+  OAuth2 access tokens. Commercial use is routed through RapidAPI's metered tiers.
 url: https://apidocs.imgur.com/
+image: https://s.imgur.com/images/favicon-152.png
 specificationVersion: '0.20'
+type: API
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-05-30'
 x-source: public-apis/public-apis
-x-category: "Photography"
-x-tier: 3
-x-tier-reason: bulk-registered-from-public-apis
+x-category: Photography
+x-tier: 2
+x-tier-reason: pipeline-enriched
 tags:
   - Photography
+  - Images
+  - Image Hosting
+  - Albums
+  - Gallery
+  - Social
+  - Memes
+  - Content Sharing
   - Public APIs
+
 apis:
-  - name: Imgur
-    description: "Images"
+  - name: Imgur API v3
+    description: >-
+      RESTful HTTP/JSON API for Imgur covering images, albums, the public gallery,
+      comments, accounts, tags, topics, meme generation, and notifications.
     humanURL: https://apidocs.imgur.com/
-    baseURL: https://apidocs.imgur.com/
+    baseURL: https://api.imgur.com/3/
     tags:
-      - Photography
+      - Images
+      - Albums
+      - Gallery
+      - Comments
+      - Accounts
+      - Tags
+      - OAuth2
     properties:
       - type: Documentation
         url: https://apidocs.imgur.com/
+      - type: OpenAPI
+        url: openapi/imgur-openapi.yml
+      - type: Authentication
+        url: https://apidocs.imgur.com/#authorization-and-oauth
+      - type: RateLimits
+        url: rate-limits/imgur-rate-limits.yml
+      - type: SignUp
+        url: https://api.imgur.com/oauth2/addclient
+      - type: JSONSchema
+        url: json-schema/imgur-image-schema.json
+      - type: JSONSchema
+        url: json-schema/imgur-album-schema.json
+      - type: JSONSchema
+        url: json-schema/imgur-comment-schema.json
+      - type: JSONSchema
+        url: json-schema/imgur-account-schema.json
+      - type: JSONSchema
+        url: json-schema/imgur-gallery-item-schema.json
+      - type: JSONSchema
+        url: json-schema/imgur-tag-schema.json
+      - type: JSONSchema
+        url: json-schema/imgur-access-token-schema.json
+      - type: JSONStructure
+        url: json-structure/imgur-image-structure.json
+      - type: JSONStructure
+        url: json-structure/imgur-album-structure.json
+      - type: JSONStructure
+        url: json-structure/imgur-comment-structure.json
+      - type: JSONStructure
+        url: json-structure/imgur-account-structure.json
+      - type: JSONStructure
+        url: json-structure/imgur-gallery-item-structure.json
+      - type: Example
+        url: examples/imgur-uploadImage-example.json
+      - type: Example
+        url: examples/imgur-getImage-example.json
+      - type: Example
+        url: examples/imgur-getAlbum-example.json
+      - type: Example
+        url: examples/imgur-getGallery-example.json
+      - type: Example
+        url: examples/imgur-createComment-example.json
+      - type: Example
+        url: examples/imgur-getAccount-example.json
+      - type: Example
+        url: examples/imgur-issueAccessToken-example.json
+      - type: Example
+        url: examples/imgur-getRateLimitCredits-example.json
+      - type: Plans
+        url: plans/imgur-plans-pricing.yml
+      - type: FinOps
+        url: finops/imgur-finops.yml
+
 common:
   - type: Website
+    url: https://imgur.com/
+  - type: Portal
+    url: https://api.imgur.com/
+  - type: Documentation
     url: https://apidocs.imgur.com/
-  - type: PublicAPIsListing
-    url: https://github.com/public-apis/public-apis
+  - type: TermsOfService
+    url: https://imgur.com/tos
+  - type: PrivacyPolicy
+    url: https://imgur.com/privacy
+  - type: Support
+    url: https://help.imgur.com/
+  - type: Blog
+    url: https://imgur.com/blog
+  - type: GitHubOrganization
+    url: https://github.com/Imgur
+  - type: StackOverflow
+    url: https://stackoverflow.com/questions/tagged/imgur
+  - type: SDK
+    name: imgurpython
+    url: https://github.com/Imgur/imgurpython
+    description: Official Imgur Python client library (deprecated but functional).
+  - type: SDK
+    name: Imgur iOS Library
+    url: https://github.com/Imgur/Hermes
+    description: Swift library for Imgur on iOS.
+  - type: SDK
+    name: Mandible
+    url: https://github.com/Imgur/mandible
+    description: Go-based image upload service developed and used by Imgur.
+  - type: SDK
+    name: Incus
+    url: https://github.com/Imgur/incus
+    description: Imgur's open-source websocket/push messaging middleware.
+  - type: SDK
+    name: incusjs
+    url: https://github.com/Imgur/incusjs
+    description: JavaScript client bindings for Incus.
+  - type: SDK
+    name: Imgur.API (.NET)
+    url: https://github.com/DamienDennehy/Imgur.API
+    description: Community .NET client for the Imgur API v3.
+  - type: SpectralRules
+    url: rules/imgur-rules.yml
+  - type: Vocabulary
+    url: vocabulary/imgur-vocabulary.yml
+  - type: JSON-LD
+    url: json-ld/imgur-context.jsonld
+  - type: NaftikoCapability
+    url: capabilities/shared/imgur.yaml
+  - type: NaftikoCapability
+    url: capabilities/share-image-to-gallery.yaml
+  - type: NaftikoCapability
+    url: capabilities/build-album.yaml
+  - type: NaftikoCapability
+    url: capabilities/moderate-comments.yaml
+  - type: Features
+    data:
+      - name: Image Upload
+        description: Anonymous or authenticated upload via binary, base64, or remote URL.
+      - name: Albums
+        description: Group images into ordered, privacy-aware collections.
+      - name: Public Gallery
+        description: Hot / top / user sections with sort and time windows.
+      - name: Comments & Voting
+        description: Threaded comments and up/down voting on gallery items.
+      - name: Tags & Topics
+        description: Folksonomy tagging and editor-curated topic channels.
+      - name: Meme Generation
+        description: Generate memes from default templates.
+      - name: Notifications
+        description: Per-user notification feed for replies, followers, and gallery events.
+      - name: Rate-Limit Introspection
+        description: GET /3/credits returns current client and user quota usage.
+  - type: UseCases
+    data:
+      - name: User-Generated Content Hosting
+        description: Apps and forums offload image hosting to Imgur's free Client-ID tier.
+      - name: Meme & Social Content Pipelines
+        description: Bots and Discord/Reddit integrations upload generated images on the fly.
+      - name: Screenshot Sharing
+        description: Desktop tools (ShareX, Greenshot) push screenshots to anonymous Imgur links.
+      - name: Mobile App Image Pipelines
+        description: iOS/Android apps use the iOS/Android SDKs to upload user photos.
+      - name: Gallery Content Curation
+        description: Editors fetch hot/top gallery feeds to surface trending images on third-party sites.
+  - type: Integrations
+    data:
+      - name: Reddit
+        description: Imgur grew up alongside Reddit; Reddit posts frequently embed Imgur links.
+      - name: Discord
+        description: Many Discord bots use Imgur for ephemeral image storage.
+      - name: ShareX
+        description: Popular Windows screenshot tool uploads directly to Imgur via Client-ID.
+      - name: RapidAPI
+        description: Commercial Imgur API access is routed through RapidAPI's marketplace.
+      - name: imgurpython, Imgur.API, Hermes
+        description: Official and community SDKs cover Python, .NET, Swift, and Go ecosystems.
+  - type: Solutions
+    data:
+      - name: Free Anonymous Tier
+        description: Client-ID based, non-commercial use within daily/hourly quotas at $0.
+      - name: OAuth2 User Tier
+        description: Per-user authenticated access for apps acting on behalf of an Imgur user.
+      - name: RapidAPI Commercial Tiers
+        description: Basic / Pro / Ultra / Mega tiers on RapidAPI for commercial use cases.
+
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

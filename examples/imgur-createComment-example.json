@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.imgur.com/3/comment",
+    "headers": {
+      "Authorization": "Bearer YOUR_OAUTH2_ACCESS_TOKEN",
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "image_id": "ABC1234",
+      "comment": "This shot is gorgeous, what lens?"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "id": 1029384756
+      },
+      "success": true,
+      "status": 200
+    }
+  }
+}

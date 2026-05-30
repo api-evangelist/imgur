@@ -1,0 +1,78 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "imgur": "https://github.com/api-evangelist/imgur#",
+    "ImgurImage": {
+      "@id": "imgur:Image",
+      "@type": "@id"
+    },
+    "ImgurAlbum": {
+      "@id": "imgur:Album",
+      "@type": "@id"
+    },
+    "ImgurGalleryItem": {
+      "@id": "imgur:GalleryItem",
+      "@type": "@id"
+    },
+    "ImgurComment": {
+      "@id": "imgur:Comment",
+      "@type": "@id"
+    },
+    "ImgurAccount": {
+      "@id": "imgur:Account",
+      "@type": "@id"
+    },
+    "ImgurTag": {
+      "@id": "imgur:Tag",
+      "@type": "@id"
+    },
+    "id": "@id",
+    "title": "name",
+    "description": "description",
+    "link": {
+      "@id": "url",
+      "@type": "@id"
+    },
+    "datetime": {
+      "@id": "uploadDate",
+      "@type": "xsd:dateTime"
+    },
+    "width": "width",
+    "height": "height",
+    "size": "contentSize",
+    "type": "encodingFormat",
+    "account_url": "author",
+    "account_id": {
+      "@id": "identifier",
+      "@type": "xsd:integer"
+    },
+    "views": "interactionCount",
+    "ups": "upvoteCount",
+    "downs": "downvoteCount",
+    "comment_count": "commentCount",
+    "tags": {
+      "@id": "keywords",
+      "@container": "@set"
+    },
+    "images": {
+      "@id": "hasPart",
+      "@container": "@list"
+    },
+    "children": {
+      "@id": "comment",
+      "@container": "@list"
+    },
+    "reputation": "interactionStatistic",
+    "avatar": {
+      "@id": "image",
+      "@type": "@id"
+    },
+    "bio": "description",
+    "deletehash": "imgur:deletehash",
+    "privacy": "imgur:privacy",
+    "layout": "imgur:layout",
+    "nsfw": "imgur:nsfw",
+    "topic": "about",
+    "is_album": "imgur:isAlbum"
+  }
+}

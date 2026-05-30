@@ -1,0 +1,21 @@
+{
+  "name": "ImgurAlbum",
+  "description": "Field-level documentation of the Imgur Album resource.",
+  "fields": [
+    { "name": "id", "type": "string", "required": true, "description": "Album hash." },
+    { "name": "title", "type": "string|null" },
+    { "name": "description", "type": "string|null" },
+    { "name": "datetime", "type": "integer" },
+    { "name": "cover", "type": "string|null", "description": "Image ID of the album cover." },
+    { "name": "cover_width", "type": "integer" },
+    { "name": "cover_height", "type": "integer" },
+    { "name": "account_url", "type": "string|null" },
+    { "name": "account_id", "type": "integer|null" },
+    { "name": "privacy", "type": "string", "description": "public, hidden, or secret." },
+    { "name": "layout", "type": "string", "description": "blog, grid, horizontal, or vertical." },
+    { "name": "views", "type": "integer" },
+    { "name": "link", "type": "string" },
+    { "name": "images_count", "type": "integer" },
+    { "name": "images", "type": "ImgurImage[]" }
+  ]
+}

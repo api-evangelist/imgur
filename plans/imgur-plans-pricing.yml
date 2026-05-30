@@ -1,0 +1,85 @@
+apiCommonsPlansVersion: '0.1'
+provider:
+  id: imgur
+  name: Imgur
+  url: https://apidocs.imgur.com/
+  description: >-
+    Imgur's API is offered free of charge with a Client-ID for non-commercial use.
+    Commercial use is routed through RapidAPI's "Imgur Commercial API" listing, which
+    layers paid tiers on top of the same underlying v3 API.
+created: '2026-05-30'
+modified: '2026-05-30'
+
+plans:
+  - id: free-client-id
+    name: Free (Client-ID)
+    description: >-
+      Anonymous, non-commercial access. Register a Client-ID at api.imgur.com, send it
+      in the Authorization header, and receive Imgur's default daily upload and hourly
+      request quotas at no cost.
+    price:
+      amount: 0
+      currency: USD
+      period: month
+    target: developers
+    use: non-commercial
+    signup: https://api.imgur.com/oauth2/addclient
+    quotas:
+      - metric: uploads
+        limit: 12500
+        period: day
+      - metric: requests
+        limit: 1250
+        period: hour
+    features:
+      - Full Imgur API v3 surface
+      - Anonymous image, album, gallery, comment, account, tag, and topic endpoints
+      - OAuth2 user-scoped operations
+      - Public CDN delivery from i.imgur.com
+    restrictions:
+      - For non-commercial use only per Imgur ToS
+      - Subject to mature-content rules and DMCA policy
+
+  - id: rapidapi-basic
+    name: RapidAPI Basic
+    description: Commercial routing of the Imgur API via RapidAPI's Basic tier.
+    price:
+      amount: 0
+      currency: USD
+      period: month
+      overage:
+        - metric: requests
+          unitPrice: 0.0002
+      note: Free quota with per-request overage; exact pricing set on RapidAPI listing.
+    target: commercial
+    use: commercial
+    signup: https://rapidapi.com/imgur/api/imgur-9/
+
+  - id: rapidapi-pro
+    name: RapidAPI Pro
+    description: Higher monthly request allowance and SLA-style guarantees for commercial integrators.
+    price:
+      amount: null
+      currency: USD
+      period: month
+      note: Tier price set on RapidAPI; see provider listing.
+    target: commercial
+    use: commercial
+    signup: https://rapidapi.com/imgur/api/imgur-9/
+
+  - id: rapidapi-ultra
+    name: RapidAPI Ultra
+    description: Highest volume tier on RapidAPI for high-throughput commercial use.
+    price:
+      amount: null
+      currency: USD
+      period: month
+      note: Tier price set on RapidAPI; see provider listing.
+    target: commercial
+    use: commercial
+    signup: https://rapidapi.com/imgur/api/imgur-9/
+
+notes:
+  - Imgur's classic free Client-ID tier is the canonical entry point for hobby, OSS, and personal use.
+  - Commercial deployments must use RapidAPI's metered tiers (Basic, Pro, Ultra, Mega) per Imgur ToS.
+  - There is no longer an "Imgur Pro" subscription plan for the API itself; legacy Pro accounts have no impact on API quotas.

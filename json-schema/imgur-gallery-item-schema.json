@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/imgur/json-schema/imgur-gallery-item-schema.json",
+  "title": "Imgur Gallery Item",
+  "description": "An image or album surfaced in the public gallery.",
+  "type": "object",
+  "required": ["id", "link", "is_album"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "description": { "type": ["string", "null"] },
+    "datetime": { "type": "integer" },
+    "cover": { "type": ["string", "null"] },
+    "account_url": { "type": "string" },
+    "account_id": { "type": "integer" },
+    "privacy": { "type": "string" },
+    "layout": { "type": "string" },
+    "views": { "type": "integer" },
+    "link": { "type": "string", "format": "uri" },
+    "ups": { "type": "integer" },
+    "downs": { "type": "integer" },
+    "points": { "type": "integer" },
+    "score": { "type": "integer" },
+    "is_album": { "type": "boolean" },
+    "vote": { "type": ["string", "null"] },
+    "favorite": { "type": "boolean" },
+    "nsfw": { "type": "boolean" },
+    "comment_count": { "type": "integer" },
+    "topic": { "type": ["string", "null"] },
+    "topic_id": { "type": ["integer", "null"] },
+    "tags": {
+      "type": "array",
+      "items": { "$ref": "imgur-tag-schema.json" }
+    }
+  }
+}

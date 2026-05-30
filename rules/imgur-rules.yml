@@ -1,0 +1,96 @@
+extends:
+  - "spectral:oas"
+documentationUrl: https://apidocs.imgur.com/
+rules:
+  imgur-server-must-be-api-imgur-com:
+    description: Imgur API v3 must be served from https://api.imgur.com.
+    message: "Servers must include https://api.imgur.com (Imgur v3 API root)."
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://api\\.imgur\\.com.*"
+
+  imgur-paths-prefixed-with-v3-or-oauth2:
+    description: All paths must be under /3/ (Imgur v3) or /oauth2/ (auth flow).
+    message: "Imgur paths must start with /3/ or /oauth2/."
+    severity: error
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/(3/|oauth2/).*"
+
+  imgur-operation-summary-title-case:
+    description: Operation summaries should be in Title Case.
+    message: "Summary should be in Title Case (each major word capitalized)."
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-zA-Z0-9]*)(\\s+([A-Z][a-zA-Z0-9]*|To|In|On|Of|And|For|The|A|An))*\\.?$"
+
+  imgur-operation-must-have-operationId:
+    description: Every operation must declare an operationId.
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: operationId
+      function: truthy
+
+  imgur-operation-must-have-tag:
+    description: Every operation must declare at least one tag.
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: tags
+      function: truthy
+
+  imgur-must-define-client-id-or-oauth2:
+    description: Security schemes must include ClientId (anonymous) or OAuth2.
+    severity: error
+    given: "$.components.securitySchemes"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          anyOf:
+            - required: [ClientId]
+            - required: [OAuth2]
+
+  imgur-camelcase-operationId:
+    description: operationId should be lowerCamelCase.
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  imgur-image-hash-parameter-naming:
+    description: Image/album/comment hash path parameters should use consistent naming.
+    severity: warn
+    given: "$.paths[*][*].parameters[?(@.in=='path')].name"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(imageHash|albumHash|galleryHash|commentId|notificationId|topicId|username|tagName|section|sort|window|page|vote)$"
+
+  imgur-response-must-document-200:
+    description: Successful operations must document a 200 response.
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].responses"
+    then:
+      field: "200"
+      function: truthy
+
+  imgur-info-contact-required:
+    description: info.contact must be present so consumers know where to file issues.
+    severity: warn
+    given: "$.info"
+    then:
+      field: contact
+      function: truthy

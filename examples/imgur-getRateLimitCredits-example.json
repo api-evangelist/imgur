@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.imgur.com/3/credits",
+    "headers": {
+      "Authorization": "Client-ID YOUR_CLIENT_ID"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "UserLimit": 500,
+        "UserRemaining": 482,
+        "UserReset": 1748566800,
+        "ClientLimit": 12500,
+        "ClientRemaining": 12489
+      },
+      "success": true,
+      "status": 200
+    }
+  }
+}

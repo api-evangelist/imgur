@@ -1,0 +1,20 @@
+{
+  "name": "ImgurComment",
+  "description": "Field-level documentation of the Imgur Comment resource.",
+  "fields": [
+    { "name": "id", "type": "integer", "required": true },
+    { "name": "image_id", "type": "string", "required": true, "description": "Hash of the image or album the comment is attached to." },
+    { "name": "comment", "type": "string" },
+    { "name": "author", "type": "string" },
+    { "name": "author_id", "type": "integer" },
+    { "name": "on_album", "type": "boolean" },
+    { "name": "album_cover", "type": "string|null" },
+    { "name": "ups", "type": "integer" },
+    { "name": "downs", "type": "integer" },
+    { "name": "points", "type": "number" },
+    { "name": "datetime", "type": "integer" },
+    { "name": "parent_id", "type": "integer", "description": "0 for top-level comments." },
+    { "name": "deleted", "type": "boolean" },
+    { "name": "children", "type": "ImgurComment[]" }
+  ]
+}

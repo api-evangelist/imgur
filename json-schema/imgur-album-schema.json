@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/imgur/json-schema/imgur-album-schema.json",
+  "title": "Imgur Album",
+  "description": "A collection of Imgur images.",
+  "type": "object",
+  "required": ["id", "link"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": ["string", "null"] },
+    "description": { "type": ["string", "null"] },
+    "datetime": { "type": "integer" },
+    "cover": { "type": ["string", "null"] },
+    "cover_width": { "type": "integer" },
+    "cover_height": { "type": "integer" },
+    "account_url": { "type": ["string", "null"] },
+    "account_id": { "type": ["integer", "null"] },
+    "privacy": { "type": "string", "enum": ["public", "hidden", "secret"] },
+    "layout": { "type": "string", "enum": ["blog", "grid", "horizontal", "vertical"] },
+    "views": { "type": "integer" },
+    "link": { "type": "string", "format": "uri" },
+    "favorite": { "type": "boolean" },
+    "nsfw": { "type": ["boolean", "null"] },
+    "section": { "type": ["string", "null"] },
+    "images_count": { "type": "integer" },
+    "in_gallery": { "type": "boolean" },
+    "is_ad": { "type": "boolean" },
+    "include_album_ads": { "type": "boolean" },
+    "deletehash": { "type": "string" },
+    "images": {
+      "type": "array",
+      "items": { "$ref": "imgur-image-schema.json" }
+    }
+  }
+}

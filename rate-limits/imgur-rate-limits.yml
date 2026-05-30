@@ -1,0 +1,87 @@
+apiCommonsRateLimitsVersion: '0.1'
+provider:
+  id: imgur
+  name: Imgur
+  url: https://apidocs.imgur.com/
+created: '2026-05-30'
+modified: '2026-05-30'
+
+scopes:
+  - id: client
+    description: Per Client-ID, rolling daily window.
+  - id: user
+    description: Per authenticated OAuth2 user, rolling hourly window.
+  - id: post
+    description: Per-account write-action throttle, rolling hourly window.
+  - id: upload
+    description: Per Client-ID upload-specific daily quota.
+
+policies:
+  - id: client-daily-requests
+    scope: client
+    description: Daily request quota per Client-ID for the free, non-commercial tier.
+    limit: 12500
+    period: day
+    metric: requests
+    enforcement:
+      headers:
+        remaining: X-RateLimit-ClientRemaining
+        limit: X-RateLimit-ClientLimit
+      response:
+        status: 429
+        body: '{ "data": { "error": "Rate limit exceeded" }, "success": false, "status": 429 }'
+
+  - id: user-hourly-requests
+    scope: user
+    description: Hourly request quota per authenticated user.
+    limit: 500
+    period: hour
+    metric: requests
+    enforcement:
+      headers:
+        remaining: X-RateLimit-UserRemaining
+        limit: X-RateLimit-UserLimit
+        reset: X-RateLimit-UserReset
+      response:
+        status: 429
+
+  - id: post-hourly-writes
+    scope: post
+    description: Hourly write-action limit (uploads, comments, votes) per account/IP.
+    limit: 1250
+    period: hour
+    metric: write_requests
+    enforcement:
+      headers:
+        remaining: X-Post-Rate-Limit-Remaining
+        limit: X-Post-Rate-Limit-Limit
+        reset: X-Post-Rate-Limit-Reset
+      response:
+        status: 429
+
+  - id: upload-daily
+    scope: upload
+    description: Daily upload quota per Client-ID.
+    limit: 1250
+    period: day
+    metric: uploads
+    enforcement:
+      response:
+        status: 429
+        body: '{ "data": { "error": "Imgur is over capacity" }, "success": false, "status": 429 }'
+
+discovery:
+  endpoint: /3/credits
+  description: GET /3/credits returns current ClientLimit/ClientRemaining/UserLimit/UserRemaining/UserReset.
+  example:
+    request: "GET https://api.imgur.com/3/credits"
+    response: |
+      { "data": { "UserLimit": 500, "UserRemaining": 482, "UserReset": 1748566800,
+                  "ClientLimit": 12500, "ClientRemaining": 12489 },
+        "success": true, "status": 200 }
+
+guidance:
+  - Always inspect rate-limit response headers; do not assume a fixed limit per environment.
+  - Authenticated OAuth2 calls count against both the user and client quotas.
+  - Bursting writes (votes, uploads) hits the post-rate limit before the request limit; backoff accordingly.
+  - Commercial volume above these limits requires the RapidAPI listing.

@@ -1,0 +1,40 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.imgur.com/3/gallery/hot/viral/day/0",
+    "headers": {
+      "Authorization": "Client-ID YOUR_CLIENT_ID"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": [
+        {
+          "id": "Gxy123",
+          "title": "When the coffee finally kicks in",
+          "datetime": 1748550000,
+          "cover": "ABC1234",
+          "account_url": "TopUser",
+          "account_id": 42,
+          "privacy": "public",
+          "layout": "blog",
+          "views": 105432,
+          "link": "https://imgur.com/gallery/Gxy123",
+          "ups": 4321,
+          "downs": 87,
+          "points": 4234,
+          "score": 4234,
+          "is_album": true,
+          "favorite": false,
+          "nsfw": false,
+          "comment_count": 312,
+          "topic": "Funny",
+          "topic_id": 8
+        }
+      ],
+      "success": true,
+      "status": 200
+    }
+  }
+}

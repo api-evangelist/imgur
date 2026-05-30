@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/imgur/json-schema/imgur-comment-schema.json",
+  "title": "Imgur Comment",
+  "description": "A comment on a gallery image or album.",
+  "type": "object",
+  "required": ["id", "image_id", "comment"],
+  "properties": {
+    "id": { "type": "integer" },
+    "image_id": { "type": "string" },
+    "comment": { "type": "string" },
+    "author": { "type": "string" },
+    "author_id": { "type": "integer" },
+    "on_album": { "type": "boolean" },
+    "album_cover": { "type": ["string", "null"] },
+    "ups": { "type": "integer" },
+    "downs": { "type": "integer" },
+    "points": { "type": "number" },
+    "datetime": { "type": "integer" },
+    "parent_id": { "type": "integer" },
+    "deleted": { "type": "boolean" },
+    "vote": { "type": ["string", "null"] },
+    "platform": { "type": ["string", "null"] },
+    "children": {
+      "type": "array",
+      "items": { "$ref": "imgur-comment-schema.json" }
+    }
+  }
+}

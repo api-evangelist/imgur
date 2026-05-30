@@ -1,0 +1,80 @@
+name: Imgur Vocabulary
+description: Controlled vocabulary for the Imgur API v3 — resources, actions, and domain terms used across image, album, gallery, comment, account, tag, and topic surfaces.
+url: https://github.com/api-evangelist/imgur
+version: '1.0'
+created: '2026-05-30'
+
+resources:
+  - term: Image
+    definition: A still or animated visual asset uploaded to Imgur, identified by a seven-character hash.
+    aliases: [Pic, Picture]
+  - term: Album
+    definition: An ordered collection of images grouped under a single hash.
+  - term: Gallery
+    definition: The public, voted, sortable surface where submitted images and albums appear (hot / top / user).
+  - term: GalleryItem
+    definition: An image or album that has been submitted to the public gallery; gains ups, downs, score, and a topic.
+  - term: Comment
+    definition: A user-authored reply attached to a gallery image or album; can be nested.
+  - term: Account
+    definition: A registered Imgur user with a username, reputation, avatar, and content.
+  - term: Tag
+    definition: A folksonomy label attached to gallery items; tags have followers and a tag gallery.
+  - term: Topic
+    definition: A curated, editor-defined channel that gallery submissions can be filed under.
+  - term: Notification
+    definition: A user-scoped event (new reply, new follower, etc.).
+  - term: Memegen
+    definition: Imgur's meme-template service with default meme templates.
+
+actions:
+  - term: Upload
+    definition: Submit a new image to Imgur. Anonymous (Client-ID) or authenticated (OAuth2).
+  - term: Favorite
+    definition: Toggle the authenticated user's favorite mark on an image or album.
+  - term: Vote
+    definition: Cast up, down, or veto on a gallery item or comment.
+  - term: Submit
+    definition: Promote an image/album from private to the public gallery.
+  - term: Report
+    definition: Flag a gallery item for moderator review.
+
+authentication:
+  - term: ClientId
+    definition: Anonymous header credential of the form `Authorization: Client-ID <id>`.
+  - term: OAuth2
+    definition: User-scoped bearer token issued via authorization-code, refresh-token, or PIN grant at /oauth2/token.
+  - term: Deletehash
+    definition: One-time string returned to anonymous uploaders that authorizes deletion without an account.
+
+reputation:
+  - term: ReputationName
+    definition: Tier label derived from total reputation points.
+    values:
+      - Forever Alone
+      - Neutral
+      - Liked
+      - Trusted
+      - Idolized
+      - Renowned
+      - Glorious
+
+enumerations:
+  - term: Privacy
+    values: [public, hidden, secret]
+  - term: Layout
+    values: [blog, grid, horizontal, vertical]
+  - term: GallerySection
+    values: [hot, top, user]
+  - term: GallerySort
+    values: [viral, top, time, rising]
+  - term: GalleryWindow
+    values: [day, week, month, year, all]
+
+constraints:
+  - term: ImageHash
+    definition: Seven-character alphanumeric image identifier.
+  - term: AlbumHash
+    definition: Seven-character alphanumeric album identifier.
+  - term: RateLimitCredit
+    definition: A unit consumed against the user (UserLimit/UserRemaining) or client (ClientLimit/ClientRemaining) quota.

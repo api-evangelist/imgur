@@ -1,0 +1,31 @@
+apiVersion: naftiko.dev/v1alpha1
+kind: CapabilityWorkflow
+metadata:
+  name: moderate-comments
+  title: Moderate Comments On An Image
+  description: Fetch all comments on an image and delete those flagged by an upstream moderation policy.
+spec:
+  inputs:
+    - name: imageHash
+      description: The image whose comments should be moderated.
+    - name: deleteWhen
+      description: Boolean expression evaluated per-comment that triggers deletion.
+  steps:
+    - id: fetch
+      use: imgur/get-image
+      with:
+        imageHash: "{{ inputs.imageHash }}"
+      output: image
+    - id: listComments
+      use: imgur/get-account-comments
+      with:
+        username: me
+      output: comments
+    - id: delete
+      foreach: "{{ comments.data }}"
+      when: "{{ inputs.deleteWhen }}"
+      use: imgur/delete-comment
+      with:
+        commentId: "{{ item.id }}"
+  outputs:
+    moderatedCount: "{{ delete.length }}"

@@ -1,0 +1,79 @@
+focusVersion: '1.0'
+provider:
+  id: imgur
+  name: Imgur
+  category: ImageHosting
+  url: https://apidocs.imgur.com/
+created: '2026-05-30'
+modified: '2026-05-30'
+
+billingProfile:
+  primaryModel: FreeWithCommercialMetering
+  description: >-
+    Imgur's free Client-ID tier is unbilled; commercial use is routed through RapidAPI's
+    metered tiers and billed by RapidAPI. There is no direct Imgur invoice for API usage.
+  invoicingChannels:
+    - direct-imgur: none (no API invoice on the free tier)
+    - rapidapi: monthly subscription + per-request overage
+
+focusMapping:
+  serviceName: Imgur API v3
+  serviceCategory: ContentDelivery
+  resource:
+    - id: api-request
+      ResourceType: ApiCall
+      Description: A single HTTP request to the Imgur API v3.
+    - id: image-upload
+      ResourceType: ImageUpload
+      Description: An image upload via POST /3/image (counts against the upload quota).
+    - id: bandwidth
+      ResourceType: ContentDelivery
+      Description: Outbound bytes served by i.imgur.com (not directly metered to the API consumer).
+  pricingCategory:
+    - free: Anonymous Client-ID usage within daily/hourly quotas — $0.
+    - subscription: RapidAPI tier monthly fee.
+    - usage: RapidAPI per-request overage above tier allowance.
+  billingPeriod: Monthly
+  chargeFrequency:
+    - subscription: monthly
+    - usage: monthly
+
+costAllocation:
+  recommendedTags:
+    - environment
+    - team
+    - application
+    - costCenter
+  notes:
+    - Tag Client-IDs by environment (prod / staging / dev) so per-environment quota usage can be charged back internally.
+    - Track GET /3/credits responses to project burn-down on each Client-ID daily window.
+
+unitEconomics:
+  metrics:
+    - id: request-unit
+      description: One Imgur API v3 request.
+      cost: 0
+      currency: USD
+    - id: upload-unit
+      description: One image upload (also consumes a request unit).
+      cost: 0
+      currency: USD
+    - id: bandwidth-unit
+      description: 1 GB served from i.imgur.com.
+      cost: 0
+      currency: USD
+      notes: Imgur absorbs CDN cost; consumers do not see bandwidth charges.
+
+risk:
+  - id: tos-commercial-violation
+    description: Using the free Client-ID for commercial workloads violates Imgur's ToS and can result in revocation.
+    mitigation: Route commercial traffic through RapidAPI.
+  - id: 429-spike
+    description: Hitting the per-Client-ID daily upload limit halts uploads for the rest of the window.
+    mitigation: Monitor /3/credits and shed or queue uploads before quota exhaustion.
+
+reporting:
+  - id: weekly-quota-burn
+    description: Weekly summary of ClientRemaining / UserRemaining minimums per environment.
+  - id: rapidapi-invoice-import
+    description: Ingest RapidAPI's monthly invoice and map line items to internal cost centers.

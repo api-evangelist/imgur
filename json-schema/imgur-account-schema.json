@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/imgur/json-schema/imgur-account-schema.json",
+  "title": "Imgur Account",
+  "description": "A registered Imgur user account.",
+  "type": "object",
+  "required": ["id", "url"],
+  "properties": {
+    "id": { "type": "integer" },
+    "url": { "type": "string", "description": "Public account username." },
+    "bio": { "type": ["string", "null"] },
+    "avatar": { "type": ["string", "null"], "format": "uri" },
+    "avatar_name": { "type": ["string", "null"] },
+    "cover": { "type": ["string", "null"], "format": "uri" },
+    "cover_name": { "type": ["string", "null"] },
+    "reputation": { "type": "number" },
+    "reputation_name": { "type": "string" },
+    "created": { "type": "integer" },
+    "pro_expiration": { "type": ["integer", "null"] },
+    "user_follow": {
+      "type": "object",
+      "properties": { "status": { "type": "boolean" } }
+    },
+    "is_blocked": { "type": "boolean" }
+  }
+}

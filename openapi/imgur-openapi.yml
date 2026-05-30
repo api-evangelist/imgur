@@ -1,0 +1,871 @@
+openapi: 3.0.3
+info:
+  title: Imgur API
+  version: '3.0'
+  description: >-
+    Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful
+    HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting,
+    galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID,
+    and per-user actions require OAuth2 access tokens.
+  contact:
+    name: Imgur API Support
+    url: https://help.imgur.com/
+  license:
+    name: Imgur API Terms
+    url: https://imgur.com/tos
+servers:
+  - url: https://api.imgur.com
+    description: Imgur API root
+tags:
+  - name: Auth
+    description: OAuth2 token issuance and refresh.
+  - name: Image
+    description: Image upload, retrieval, deletion, favorite, and update operations.
+  - name: Album
+    description: Album creation, retrieval, and image-management operations.
+  - name: Gallery
+    description: Public gallery listing, voting, sharing, and reporting.
+  - name: Comment
+    description: Comments on gallery items.
+  - name: Account
+    description: Account-scoped data: profile, images, albums, favorites, settings, notifications.
+  - name: Tags
+    description: Tag-based gallery browsing and tagging of gallery items.
+  - name: Memegen
+    description: Meme generation and meme defaults.
+  - name: Notification
+    description: User notification retrieval and dismissal.
+  - name: Topic
+    description: Topic listings and topic galleries.
+paths:
+  /oauth2/authorize:
+    get:
+      tags: [Auth]
+      summary: Authorize User
+      operationId: authorizeUser
+      description: Begin the OAuth2 authorization-code or token grant flow.
+      parameters:
+        - name: client_id
+          in: query
+          required: true
+          schema: { type: string }
+        - name: response_type
+          in: query
+          required: true
+          schema: { type: string, enum: [code, token, pin] }
+        - name: state
+          in: query
+          schema: { type: string }
+      responses:
+        '302':
+          description: Redirect To Configured Callback With Code Or Token.
+  /oauth2/token:
+    post:
+      tags: [Auth]
+      summary: Issue Access Token
+      operationId: issueAccessToken
+      description: Exchange an authorization code, refresh token, or PIN for an access token.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [client_id, client_secret, grant_type]
+              properties:
+                client_id: { type: string }
+                client_secret: { type: string }
+                grant_type:
+                  type: string
+                  enum: [authorization_code, refresh_token, pin]
+                code: { type: string }
+                refresh_token: { type: string }
+                pin: { type: string }
+      responses:
+        '200':
+          description: New Access Token Issued.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AccessToken' }
+
+  /3/image:
+    post:
+      tags: [Image]
+      summary: Upload Image
+      operationId: uploadImage
+      description: Upload an image (binary, base64, or URL).
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image: { type: string, format: binary }
+                type: { type: string, enum: [file, base64, url] }
+                title: { type: string }
+                description: { type: string }
+                album: { type: string }
+      responses:
+        '200':
+          description: Image Uploaded.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BasicResponse' }
+  /3/image/{imageHash}:
+    get:
+      tags: [Image]
+      summary: Get Image
+      operationId: getImage
+      parameters:
+        - $ref: '#/components/parameters/ImageHash'
+      responses:
+        '200':
+          description: Image Metadata.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BasicResponse' }
+    delete:
+      tags: [Image]
+      summary: Delete Image
+      operationId: deleteImage
+      parameters:
+        - $ref: '#/components/parameters/ImageHash'
+      responses:
+        '200':
+          description: Image Deleted.
+    post:
+      tags: [Image]
+      summary: Update Image Information
+      operationId: updateImage
+      parameters:
+        - $ref: '#/components/parameters/ImageHash'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title: { type: string }
+                description: { type: string }
+      responses:
+        '200':
+          description: Image Updated.
+  /3/image/{imageHash}/favorite:
+    post:
+      tags: [Image]
+      summary: Favorite Image
+      operationId: favoriteImage
+      parameters:
+        - $ref: '#/components/parameters/ImageHash'
+      responses:
+        '200':
+          description: Favorite Toggled.
+
+  /3/album/{albumHash}:
+    get:
+      tags: [Album]
+      summary: Get Album
+      operationId: getAlbum
+      parameters:
+        - $ref: '#/components/parameters/AlbumHash'
+      responses:
+        '200':
+          description: Album Metadata.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BasicResponse' }
+    delete:
+      tags: [Album]
+      summary: Delete Album
+      operationId: deleteAlbum
+      parameters:
+        - $ref: '#/components/parameters/AlbumHash'
+      responses:
+        '200':
+          description: Album Deleted.
+    put:
+      tags: [Album]
+      summary: Update Album
+      operationId: updateAlbum
+      parameters:
+        - $ref: '#/components/parameters/AlbumHash'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title: { type: string }
+                description: { type: string }
+                ids: { type: array, items: { type: string } }
+                privacy: { type: string, enum: [public, hidden, secret] }
+                layout: { type: string, enum: [blog, grid, horizontal, vertical] }
+                cover: { type: string }
+      responses:
+        '200':
+          description: Album Updated.
+  /3/album:
+    post:
+      tags: [Album]
+      summary: Create Album
+      operationId: createAlbum
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title: { type: string }
+                description: { type: string }
+                ids: { type: array, items: { type: string } }
+                privacy: { type: string, enum: [public, hidden, secret] }
+      responses:
+        '200':
+          description: Album Created.
+  /3/album/{albumHash}/images:
+    get:
+      tags: [Album]
+      summary: Get Album Images
+      operationId: getAlbumImages
+      parameters:
+        - $ref: '#/components/parameters/AlbumHash'
+      responses:
+        '200':
+          description: Image List.
+  /3/album/{albumHash}/favorite:
+    post:
+      tags: [Album]
+      summary: Favorite Album
+      operationId: favoriteAlbum
+      parameters:
+        - $ref: '#/components/parameters/AlbumHash'
+      responses:
+        '200':
+          description: Favorite Toggled.
+
+  /3/gallery/{section}/{sort}/{window}/{page}:
+    get:
+      tags: [Gallery]
+      summary: Get Gallery
+      operationId: getGallery
+      parameters:
+        - name: section
+          in: path
+          required: true
+          schema: { type: string, enum: [hot, top, user] }
+        - name: sort
+          in: path
+          required: true
+          schema: { type: string, enum: [viral, top, time, rising] }
+        - name: window
+          in: path
+          required: true
+          schema: { type: string, enum: [day, week, month, year, all] }
+        - name: page
+          in: path
+          required: true
+          schema: { type: integer, default: 0 }
+      responses:
+        '200':
+          description: Gallery Items.
+  /3/gallery/search:
+    get:
+      tags: [Gallery]
+      summary: Search Gallery
+      operationId: searchGallery
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema: { type: string }
+        - name: sort
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: Search Results.
+  /3/gallery/image/{galleryHash}:
+    get:
+      tags: [Gallery]
+      summary: Get Gallery Image
+      operationId: getGalleryImage
+      parameters:
+        - name: galleryHash
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Gallery Image.
+  /3/gallery/album/{galleryHash}:
+    get:
+      tags: [Gallery]
+      summary: Get Gallery Album
+      operationId: getGalleryAlbum
+      parameters:
+        - name: galleryHash
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Gallery Album.
+  /3/gallery/{galleryHash}/vote/{vote}:
+    post:
+      tags: [Gallery]
+      summary: Vote On Gallery Item
+      operationId: voteGalleryItem
+      parameters:
+        - name: galleryHash
+          in: path
+          required: true
+          schema: { type: string }
+        - name: vote
+          in: path
+          required: true
+          schema: { type: string, enum: [up, down, veto] }
+      responses:
+        '200':
+          description: Vote Recorded.
+  /3/gallery/{galleryHash}/report:
+    post:
+      tags: [Gallery]
+      summary: Report Gallery Item
+      operationId: reportGalleryItem
+      parameters:
+        - name: galleryHash
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Report Submitted.
+  /3/gallery/image:
+    post:
+      tags: [Gallery]
+      summary: Submit Image To Gallery
+      operationId: submitImageToGallery
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [title]
+              properties:
+                title: { type: string }
+                topic: { type: string }
+                terms: { type: integer, enum: [0, 1] }
+      responses:
+        '200':
+          description: Image Submitted.
+
+  /3/comment/{commentId}:
+    get:
+      tags: [Comment]
+      summary: Get Comment
+      operationId: getComment
+      parameters:
+        - name: commentId
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Comment Details.
+    delete:
+      tags: [Comment]
+      summary: Delete Comment
+      operationId: deleteComment
+      parameters:
+        - name: commentId
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Comment Deleted.
+  /3/comment:
+    post:
+      tags: [Comment]
+      summary: Create Comment
+      operationId: createComment
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [image_id, comment]
+              properties:
+                image_id: { type: string }
+                comment: { type: string }
+                parent_id: { type: string }
+      responses:
+        '200':
+          description: Comment Created.
+  /3/comment/{commentId}/reply:
+    post:
+      tags: [Comment]
+      summary: Reply To Comment
+      operationId: replyToComment
+      parameters:
+        - name: commentId
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [image_id, comment]
+              properties:
+                image_id: { type: string }
+                comment: { type: string }
+      responses:
+        '200':
+          description: Reply Posted.
+  /3/comment/{commentId}/vote/{vote}:
+    post:
+      tags: [Comment]
+      summary: Vote On Comment
+      operationId: voteOnComment
+      parameters:
+        - name: commentId
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: vote
+          in: path
+          required: true
+          schema: { type: string, enum: [up, down] }
+      responses:
+        '200':
+          description: Vote Recorded.
+
+  /3/account/{username}:
+    get:
+      tags: [Account]
+      summary: Get Account
+      operationId: getAccount
+      parameters:
+        - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Account Profile.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BasicResponse' }
+  /3/account/{username}/images:
+    get:
+      tags: [Account]
+      summary: Get Account Images
+      operationId: getAccountImages
+      parameters:
+        - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Image List.
+  /3/account/{username}/albums:
+    get:
+      tags: [Account]
+      summary: Get Account Albums
+      operationId: getAccountAlbums
+      parameters:
+        - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Album List.
+  /3/account/{username}/comments:
+    get:
+      tags: [Account]
+      summary: Get Account Comments
+      operationId: getAccountComments
+      parameters:
+        - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Comment List.
+  /3/account/{username}/favorites:
+    get:
+      tags: [Account]
+      summary: Get Account Favorites
+      operationId: getAccountFavorites
+      parameters:
+        - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Favorite List.
+  /3/account/{username}/gallery_favorites:
+    get:
+      tags: [Account]
+      summary: Get Gallery Favorites
+      operationId: getAccountGalleryFavorites
+      parameters:
+        - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Gallery Favorite List.
+  /3/account/{username}/submissions:
+    get:
+      tags: [Account]
+      summary: Get Account Submissions
+      operationId: getAccountSubmissions
+      parameters:
+        - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Submission List.
+  /3/account/{username}/settings:
+    get:
+      tags: [Account]
+      summary: Get Account Settings
+      operationId: getAccountSettings
+      parameters:
+        - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Settings.
+    put:
+      tags: [Account]
+      summary: Update Account Settings
+      operationId: updateAccountSettings
+      parameters:
+        - $ref: '#/components/parameters/Username'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                bio: { type: string }
+                public_images: { type: boolean }
+                messaging_enabled: { type: boolean }
+                album_privacy: { type: string }
+                accepted_gallery_terms: { type: boolean }
+                username: { type: string }
+                show_mature: { type: boolean }
+                newsletter_subscribed: { type: boolean }
+      responses:
+        '200':
+          description: Settings Updated.
+  /3/account/me/notifications:
+    get:
+      tags: [Account, Notification]
+      summary: Get Account Notifications
+      operationId: getAccountNotifications
+      responses:
+        '200':
+          description: Notification List.
+  /3/notification/{notificationId}:
+    get:
+      tags: [Notification]
+      summary: Get Notification
+      operationId: getNotification
+      parameters:
+        - name: notificationId
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Notification Details.
+    post:
+      tags: [Notification]
+      summary: Mark Notification Viewed
+      operationId: markNotificationViewed
+      parameters:
+        - name: notificationId
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Notification Marked Viewed.
+
+  /3/tags:
+    get:
+      tags: [Tags]
+      summary: Get Default Tags
+      operationId: getDefaultTags
+      responses:
+        '200':
+          description: Default Tag List.
+  /3/gallery/t/{tagName}:
+    get:
+      tags: [Tags]
+      summary: Get Tag Gallery
+      operationId: getTagGallery
+      parameters:
+        - name: tagName
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Tag Gallery.
+  /3/gallery/t/{tagName}/{galleryHash}:
+    get:
+      tags: [Tags]
+      summary: Get Tag Gallery Item
+      operationId: getTagGalleryItem
+      parameters:
+        - name: tagName
+          in: path
+          required: true
+          schema: { type: string }
+        - name: galleryHash
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Tag Gallery Item.
+
+  /3/memegen/defaults:
+    get:
+      tags: [Memegen]
+      summary: Get Meme Defaults
+      operationId: getMemeDefaults
+      responses:
+        '200':
+          description: Default Meme List.
+
+  /3/topics/defaults:
+    get:
+      tags: [Topic]
+      summary: Get Default Topics
+      operationId: getDefaultTopics
+      responses:
+        '200':
+          description: Default Topic List.
+  /3/topics/{topicId}/{sort}/{window}/{page}:
+    get:
+      tags: [Topic]
+      summary: Get Topic Gallery
+      operationId: getTopicGallery
+      parameters:
+        - name: topicId
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: sort
+          in: path
+          required: true
+          schema: { type: string, enum: [viral, top, time] }
+        - name: window
+          in: path
+          required: true
+          schema: { type: string, enum: [day, week, month, year, all] }
+        - name: page
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Topic Gallery.
+
+  /3/credits:
+    get:
+      tags: [Account]
+      summary: Get Rate Limit Credits
+      operationId: getRateLimitCredits
+      description: Return remaining client and user credits.
+      responses:
+        '200':
+          description: Credit Status.
+
+components:
+  parameters:
+    ImageHash:
+      name: imageHash
+      in: path
+      required: true
+      description: The image's seven-character hash (e.g. "AbCdEfG").
+      schema: { type: string }
+    AlbumHash:
+      name: albumHash
+      in: path
+      required: true
+      description: The album's seven-character hash.
+      schema: { type: string }
+    Username:
+      name: username
+      in: path
+      required: true
+      description: Account username, or "me" for the authenticated user.
+      schema: { type: string }
+  securitySchemes:
+    ClientId:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: "Anonymous access. Header value: `Client-ID <CLIENT_ID>`."
+    OAuth2:
+      type: oauth2
+      description: Per-user OAuth2 authorization.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.imgur.com/oauth2/authorize
+          tokenUrl: https://api.imgur.com/oauth2/token
+          scopes: {}
+  schemas:
+    BasicResponse:
+      type: object
+      properties:
+        data:
+          description: Operation-specific payload.
+        success:
+          type: boolean
+        status:
+          type: integer
+    AccessToken:
+      type: object
+      properties:
+        access_token: { type: string }
+        refresh_token: { type: string }
+        expires_in: { type: integer }
+        token_type: { type: string }
+        account_id: { type: integer }
+        account_username: { type: string }
+    Image:
+      type: object
+      properties:
+        id: { type: string }
+        title: { type: string, nullable: true }
+        description: { type: string, nullable: true }
+        datetime: { type: integer }
+        type: { type: string }
+        animated: { type: boolean }
+        width: { type: integer }
+        height: { type: integer }
+        size: { type: integer }
+        views: { type: integer }
+        bandwidth: { type: integer }
+        deletehash: { type: string }
+        section: { type: string, nullable: true }
+        link: { type: string }
+        nsfw: { type: boolean, nullable: true }
+        is_album: { type: boolean }
+    Album:
+      type: object
+      properties:
+        id: { type: string }
+        title: { type: string, nullable: true }
+        description: { type: string, nullable: true }
+        datetime: { type: integer }
+        cover: { type: string, nullable: true }
+        cover_width: { type: integer }
+        cover_height: { type: integer }
+        account_url: { type: string, nullable: true }
+        account_id: { type: integer, nullable: true }
+        privacy: { type: string, enum: [public, hidden, secret] }
+        layout: { type: string, enum: [blog, grid, horizontal, vertical] }
+        views: { type: integer }
+        link: { type: string }
+        images_count: { type: integer }
+        images:
+          type: array
+          items: { $ref: '#/components/schemas/Image' }
+    Comment:
+      type: object
+      properties:
+        id: { type: integer }
+        image_id: { type: string }
+        comment: { type: string }
+        author: { type: string }
+        author_id: { type: integer }
+        on_album: { type: boolean }
+        album_cover: { type: string, nullable: true }
+        ups: { type: integer }
+        downs: { type: integer }
+        points: { type: number }
+        datetime: { type: integer }
+        parent_id: { type: integer }
+        deleted: { type: boolean }
+        vote: { type: string, nullable: true }
+        platform: { type: string, nullable: true }
+        children:
+          type: array
+          items: { $ref: '#/components/schemas/Comment' }
+    GalleryItem:
+      type: object
+      properties:
+        id: { type: string }
+        title: { type: string }
+        description: { type: string, nullable: true }
+        datetime: { type: integer }
+        cover: { type: string, nullable: true }
+        account_url: { type: string }
+        account_id: { type: integer }
+        privacy: { type: string }
+        layout: { type: string }
+        views: { type: integer }
+        link: { type: string }
+        ups: { type: integer }
+        downs: { type: integer }
+        points: { type: integer }
+        score: { type: integer }
+        is_album: { type: boolean }
+        vote: { type: string, nullable: true }
+        favorite: { type: boolean }
+        nsfw: { type: boolean }
+        comment_count: { type: integer }
+        topic: { type: string, nullable: true }
+        topic_id: { type: integer, nullable: true }
+        tags:
+          type: array
+          items: { $ref: '#/components/schemas/Tag' }
+    Account:
+      type: object
+      properties:
+        id: { type: integer }
+        url: { type: string }
+        bio: { type: string, nullable: true }
+        avatar: { type: string, nullable: true }
+        cover: { type: string, nullable: true }
+        reputation: { type: number }
+        reputation_name: { type: string }
+        created: { type: integer }
+        pro_expiration: { type: integer, nullable: true }
+        user_follow:
+          type: object
+          properties:
+            status: { type: boolean }
+        is_blocked: { type: boolean }
+    Tag:
+      type: object
+      properties:
+        name: { type: string }
+        display_name: { type: string }
+        followers: { type: integer }
+        total_items: { type: integer }
+        following: { type: boolean }
+        background_hash: { type: string }
+        thumbnail_hash: { type: string, nullable: true }
+        accent: { type: string, nullable: true }
+        background_is_animated: { type: boolean }
+        thumbnail_is_animated: { type: boolean }
+        is_promoted: { type: boolean }
+        description: { type: string }
+        logo_hash: { type: string, nullable: true }
+        logo_destination_url: { type: string, nullable: true }
+    Notification:
+      type: object
+      properties:
+        id: { type: integer }
+        account_id: { type: integer }
+        viewed: { type: boolean }
+        content:
+          type: object
+    RateLimitCredits:
+      type: object
+      properties:
+        UserLimit: { type: integer }
+        UserRemaining: { type: integer }
+        UserReset: { type: integer }
+        ClientLimit: { type: integer }
+        ClientRemaining: { type: integer }
+security:
+  - ClientId: []
+  - OAuth2: []

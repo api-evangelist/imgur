@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.imgur.com/3/account/kinlane",
+    "headers": {
+      "Authorization": "Client-ID YOUR_CLIENT_ID"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "id": 123456,
+        "url": "kinlane",
+        "bio": "API Evangelist",
+        "avatar": "https://i.imgur.com/avatar.png",
+        "cover": "https://i.imgur.com/cover.png",
+        "reputation": 1742,
+        "reputation_name": "Liked",
+        "created": 1267833600,
+        "pro_expiration": null,
+        "user_follow": {
+          "status": false
+        },
+        "is_blocked": false
+      },
+      "success": true,
+      "status": 200
+    }
+  }
+}
