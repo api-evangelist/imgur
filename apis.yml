@@ -1,10 +1,9 @@
 aid: imgur
 name: Imgur
 description: >-
-  Imgur is a popular image and album hosting platform whose REST API (v3) exposes the
-  full platform — upload, retrieve, vote, comment, gallery, account, tags, topics — over
-  HTTP/JSON. Anonymous reads/writes are supported with a Client-ID; per-user actions use
-  OAuth2 access tokens. Commercial use is routed through RapidAPI's metered tiers.
+  Imgur is a popular image and album hosting platform whose REST API (v3) exposes the full platform — upload, retrieve,
+  vote, comment, gallery, account, tags, topics — over HTTP/JSON. Anonymous reads/writes are supported with a Client-ID;
+  per-user actions use OAuth2 access tokens. Commercial use is routed through RapidAPI's metered tiers.
 url: https://apidocs.imgur.com/
 image: https://s.imgur.com/images/favicon-152.png
 specificationVersion: '0.20'
@@ -25,12 +24,11 @@ tags:
   - Memes
   - Content Sharing
   - Public APIs
-
 apis:
   - name: Imgur API v3
     description: >-
-      RESTful HTTP/JSON API for Imgur covering images, albums, the public gallery,
-      comments, accounts, tags, topics, meme generation, and notifications.
+      RESTful HTTP/JSON API for Imgur covering images, albums, the public gallery, comments, accounts, tags, topics,
+      meme generation, and notifications.
     humanURL: https://apidocs.imgur.com/
     baseURL: https://api.imgur.com/3/
     tags:
@@ -96,7 +94,6 @@ apis:
         url: plans/imgur-plans-pricing.yml
       - type: FinOps
         url: finops/imgur-finops.yml
-
 common:
   - type: Website
     url: https://imgur.com/
@@ -146,14 +143,6 @@ common:
     url: vocabulary/imgur-vocabulary.yml
   - type: JSON-LD
     url: json-ld/imgur-context.jsonld
-  - type: NaftikoCapability
-    url: capabilities/shared/imgur.yaml
-  - type: NaftikoCapability
-    url: capabilities/share-image-to-gallery.yaml
-  - type: NaftikoCapability
-    url: capabilities/build-album.yaml
-  - type: NaftikoCapability
-    url: capabilities/moderate-comments.yaml
   - type: Features
     data:
       - name: Image Upload
@@ -204,7 +193,6 @@ common:
         description: Per-user authenticated access for apps acting on behalf of an Imgur user.
       - name: RapidAPI Commercial Tiers
         description: Basic / Pro / Ultra / Mega tiers on RapidAPI for commercial use cases.
-
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
