@@ -48,7 +48,7 @@ apis:
         url: https://apidocs.imgur.com/#authorization-and-oauth
       - type: RateLimits
         url: rate-limits/imgur-rate-limits.yml
-      - type: SignUp
+      - type: Signup
         url: https://api.imgur.com/oauth2/addclient
       - type: JSONSchema
         url: json-schema/imgur-image-schema.json
@@ -74,21 +74,21 @@ apis:
         url: json-structure/imgur-account-structure.json
       - type: JSONStructure
         url: json-structure/imgur-gallery-item-structure.json
-      - type: Example
+      - type: Examples
         url: examples/imgur-uploadImage-example.json
-      - type: Example
+      - type: Examples
         url: examples/imgur-getImage-example.json
-      - type: Example
+      - type: Examples
         url: examples/imgur-getAlbum-example.json
-      - type: Example
+      - type: Examples
         url: examples/imgur-getGallery-example.json
-      - type: Example
+      - type: Examples
         url: examples/imgur-createComment-example.json
-      - type: Example
+      - type: Examples
         url: examples/imgur-getAccount-example.json
-      - type: Example
+      - type: Examples
         url: examples/imgur-issueAccessToken-example.json
-      - type: Example
+      - type: Examples
         url: examples/imgur-getRateLimitCredits-example.json
       - type: Plans
         url: plans/imgur-plans-pricing.yml
@@ -113,27 +113,27 @@ common:
     url: https://github.com/Imgur
   - type: StackOverflow
     url: https://stackoverflow.com/questions/tagged/imgur
-  - type: SDK
+  - type: SDKs
     name: imgurpython
     url: https://github.com/Imgur/imgurpython
     description: Official Imgur Python client library (deprecated but functional).
-  - type: SDK
+  - type: SDKs
     name: Imgur iOS Library
     url: https://github.com/Imgur/Hermes
     description: Swift library for Imgur on iOS.
-  - type: SDK
+  - type: SDKs
     name: Mandible
     url: https://github.com/Imgur/mandible
     description: Go-based image upload service developed and used by Imgur.
-  - type: SDK
+  - type: SDKs
     name: Incus
     url: https://github.com/Imgur/incus
     description: Imgur's open-source websocket/push messaging middleware.
-  - type: SDK
+  - type: SDKs
     name: incusjs
     url: https://github.com/Imgur/incusjs
     description: JavaScript client bindings for Incus.
-  - type: SDK
+  - type: SDKs
     name: Imgur.API (.NET)
     url: https://github.com/DamienDennehy/Imgur.API
     description: Community .NET client for the Imgur API v3.
@@ -141,7 +141,7 @@ common:
     url: rules/imgur-rules.yml
   - type: Vocabulary
     url: vocabulary/imgur-vocabulary.yml
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/imgur-context.jsonld
   - type: Features
     data:
