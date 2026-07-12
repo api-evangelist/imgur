@@ -95,6 +95,8 @@ apis:
       - type: FinOps
         url: finops/imgur-finops.yml
 common:
+  - type: DomainSecurity
+    url: security/imgur-domain-security.yml
   - type: Website
     url: https://imgur.com/
   - type: Portal
