@@ -2,11 +2,13 @@
   "repo": "imgur",
   "feeds": [
     {
-      "source": "https://imgur.com/blog",
+      "source": "https://help.imgur.com/",
+      "feed_url": "https://help.imgur.com/",
+      "title": "",
       "saved": 0,
-      "error": "fetch blocked for imgur.com"
+      "method": "none"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-27T12:47:48Z"
+  "fetched": "2026-07-11T11:50:51Z"
 }
