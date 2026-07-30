@@ -5,6 +5,18 @@ description: >-
   vote, comment, gallery, account, tags, topics — over HTTP/JSON. Anonymous reads/writes are supported with a Client-ID;
   per-user actions use OAuth2 access tokens. Commercial use is routed through RapidAPI's metered tiers.
 url: https://apidocs.imgur.com/
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 image: https://s.imgur.com/images/favicon-152.png
 specificationVersion: '0.20'
 type: API
