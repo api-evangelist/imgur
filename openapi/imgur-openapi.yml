@@ -28,7 +28,7 @@ tags:
   - name: Comment
     description: Comments on gallery items.
   - name: Account
-    description: Account-scoped data: profile, images, albums, favorites, settings, notifications.
+    description: "Account-scoped data: profile, images, albums, favorites, settings, notifications."
   - name: Tags
     description: Tag-based gallery browsing and tagging of gallery items.
   - name: Memegen
