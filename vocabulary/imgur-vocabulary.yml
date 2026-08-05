@@ -41,7 +41,7 @@ actions:
 
 authentication:
   - term: ClientId
-    definition: Anonymous header credential of the form `Authorization: Client-ID <id>`.
+    definition: "Anonymous header credential of the form `Authorization: Client-ID <id>`."
   - term: OAuth2
     definition: User-scoped bearer token issued via authorization-code, refresh-token, or PIN grant at /oauth2/token.
   - term: Deletehash
