@@ -1,0 +1,187 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Imgur Gallery API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gallery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Gallery",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/gallery/:section/:sort/:window/:page",
+            "params": [
+              {
+                "name": "section",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "window",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Gallery"
+        },
+        {
+          "info": {
+            "name": "Search Gallery",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/gallery/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search Gallery"
+        },
+        {
+          "info": {
+            "name": "Get Gallery Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/gallery/image/:galleryHash",
+            "params": [
+              {
+                "name": "galleryHash",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Gallery Image"
+        },
+        {
+          "info": {
+            "name": "Get Gallery Album",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/gallery/album/:galleryHash",
+            "params": [
+              {
+                "name": "galleryHash",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Gallery Album"
+        },
+        {
+          "info": {
+            "name": "Vote On Gallery Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgur.com/3/gallery/:galleryHash/vote/:vote",
+            "params": [
+              {
+                "name": "galleryHash",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "vote",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Vote On Gallery Item"
+        },
+        {
+          "info": {
+            "name": "Report Gallery Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgur.com/3/gallery/:galleryHash/report",
+            "params": [
+              {
+                "name": "galleryHash",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Report Gallery Item"
+        },
+        {
+          "info": {
+            "name": "Submit Image To Gallery",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgur.com/3/gallery/image",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "title",
+                  "value": ""
+                },
+                {
+                  "name": "topic",
+                  "value": ""
+                },
+                {
+                  "name": "terms",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Submit Image To Gallery"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

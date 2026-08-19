@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Imgur Notification API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Account Notifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/account/me/notifications"
+          },
+          "docs": "Get Account Notifications"
+        },
+        {
+          "info": {
+            "name": "Get Notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/notification/:notificationId",
+            "params": [
+              {
+                "name": "notificationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Notification"
+        },
+        {
+          "info": {
+            "name": "Mark Notification Viewed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgur.com/3/notification/:notificationId",
+            "params": [
+              {
+                "name": "notificationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Mark Notification Viewed"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

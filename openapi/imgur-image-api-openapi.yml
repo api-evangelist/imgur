@@ -1,0 +1,146 @@
+openapi: 3.2.0
+info:
+  title: Imgur Image API
+  version: '3.0'
+  description: Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.
+  contact:
+    name: Imgur API Support
+    url: https://help.imgur.com/
+  license:
+    name: Imgur API Terms
+    url: https://imgur.com/tos
+servers:
+- url: https://api.imgur.com
+  description: Imgur API root
+security:
+- ClientId: []
+- OAuth2: []
+tags:
+- name: Image
+  description: Image upload, retrieval, deletion, favorite, and update operations.
+paths:
+  /3/image:
+    post:
+      tags:
+      - Image
+      summary: Upload Image
+      operationId: uploadImage
+      description: Upload an image (binary, base64, or URL).
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+                type:
+                  type: string
+                  enum:
+                  - file
+                  - base64
+                  - url
+                title:
+                  type: string
+                description:
+                  type: string
+                album:
+                  type: string
+      responses:
+        '200':
+          description: Image Uploaded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /3/image/{imageHash}:
+    get:
+      tags:
+      - Image
+      summary: Get Image
+      operationId: getImage
+      parameters:
+      - $ref: '#/components/parameters/ImageHash'
+      responses:
+        '200':
+          description: Image Metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+    delete:
+      tags:
+      - Image
+      summary: Delete Image
+      operationId: deleteImage
+      parameters:
+      - $ref: '#/components/parameters/ImageHash'
+      responses:
+        '200':
+          description: Image Deleted.
+    post:
+      tags:
+      - Image
+      summary: Update Image Information
+      operationId: updateImage
+      parameters:
+      - $ref: '#/components/parameters/ImageHash'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Image Updated.
+  /3/image/{imageHash}/favorite:
+    post:
+      tags:
+      - Image
+      summary: Favorite Image
+      operationId: favoriteImage
+      parameters:
+      - $ref: '#/components/parameters/ImageHash'
+      responses:
+        '200':
+          description: Favorite Toggled.
+components:
+  schemas:
+    BasicResponse:
+      type: object
+      properties:
+        data:
+          description: Operation-specific payload.
+        success:
+          type: boolean
+        status:
+          type: integer
+  parameters:
+    ImageHash:
+      name: imageHash
+      in: path
+      required: true
+      description: The image's seven-character hash (e.g. "AbCdEfG").
+      schema:
+        type: string
+  securitySchemes:
+    ClientId:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Anonymous access. Header value: `Client-ID <CLIENT_ID>`.'
+    OAuth2:
+      type: oauth2
+      description: Per-user OAuth2 authorization.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.imgur.com/oauth2/authorize
+          tokenUrl: https://api.imgur.com/oauth2/token
+          scopes: {}

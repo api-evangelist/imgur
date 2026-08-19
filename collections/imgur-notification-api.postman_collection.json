@@ -1,0 +1,290 @@
+{
+  "item": [
+    {
+      "id": "ce4cacb2-2ff3-43a8-95dc-6ee3bdf555b7",
+      "name": "Notification",
+      "description": {
+        "content": "User notification retrieval and dismissal.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aafea15f-ed0d-4ccc-93cf-ddb4ce9cabc7",
+          "name": "Get Account Notifications",
+          "request": {
+            "name": "Get Account Notifications",
+            "description": {},
+            "url": {
+              "path": [
+                "3",
+                "account",
+                "me",
+                "notifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ecf51f10-2e8d-4b4d-9693-e0c36f323e37",
+              "name": "Notification List.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "account",
+                    "me",
+                    "notifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce794a08-6a7a-4486-b892-c9a56c84028b",
+          "name": "Get Notification",
+          "request": {
+            "name": "Get Notification",
+            "description": {},
+            "url": {
+              "path": [
+                "3",
+                "notification",
+                ":notificationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "notificationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f36aaf2c-eafe-470c-8fcf-d5738f518a53",
+              "name": "Notification Details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "notification",
+                    ":notificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "notificationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "519a9e11-faea-4b38-9954-a2cb7bc01b24",
+          "name": "Mark Notification Viewed",
+          "request": {
+            "name": "Mark Notification Viewed",
+            "description": {},
+            "url": {
+              "path": [
+                "3",
+                "notification",
+                ":notificationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "notificationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42ed3394-ccb6-4d72-a16b-016753d99f80",
+              "name": "Notification Marked Viewed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "notification",
+                    ":notificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "notificationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.imgur.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6247f968-195b-4286-8b62-4490776456e3",
+    "name": "Imgur Notification API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
+      "type": "text/plain"
+    }
+  }
+}

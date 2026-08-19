@@ -1,0 +1,251 @@
+{
+  "item": [
+    {
+      "id": "3d9bede3-21dd-435e-bbe8-446a17063d55",
+      "name": "Topic",
+      "description": {
+        "content": "Topic listings and topic galleries.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70e79cac-ef50-4090-9b63-98ee75cd3cdb",
+          "name": "Get Default Topics",
+          "request": {
+            "name": "Get Default Topics",
+            "description": {},
+            "url": {
+              "path": [
+                "3",
+                "topics",
+                "defaults"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7793d7f1-d705-422a-8c43-4e323c99e137",
+              "name": "Default Topic List.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "topics",
+                    "defaults"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09cfe3bf-432e-4ddb-a18e-f78bf5ba0e90",
+          "name": "Get Topic Gallery",
+          "request": {
+            "name": "Get Topic Gallery",
+            "description": {},
+            "url": {
+              "path": [
+                "3",
+                "topics",
+                ":topicId",
+                ":sort",
+                ":window",
+                ":page"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "topicId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sort",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "window",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "page",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47f415d7-eed1-4333-95a5-2b12d6a48440",
+              "name": "Topic Gallery.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "topics",
+                    ":topicId",
+                    ":sort",
+                    ":window",
+                    ":page"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "topicId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sort",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "window",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "page",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.imgur.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e59ebd38-4dd4-496e-83b2-e9ed04dd5035",
+    "name": "Imgur Topic API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
+      "type": "text/plain"
+    }
+  }
+}

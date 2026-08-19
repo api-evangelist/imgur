@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Imgur Topic API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Topic",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Default Topics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/topics/defaults"
+          },
+          "docs": "Get Default Topics"
+        },
+        {
+          "info": {
+            "name": "Get Topic Gallery",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/topics/:topicId/:sort/:window/:page",
+            "params": [
+              {
+                "name": "topicId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "window",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Topic Gallery"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

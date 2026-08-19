@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Imgur Tags API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Default Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/tags"
+          },
+          "docs": "Get Default Tags"
+        },
+        {
+          "info": {
+            "name": "Get Tag Gallery",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/gallery/t/:tagName",
+            "params": [
+              {
+                "name": "tagName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Tag Gallery"
+        },
+        {
+          "info": {
+            "name": "Get Tag Gallery Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/gallery/t/:tagName/:galleryHash",
+            "params": [
+              {
+                "name": "tagName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "galleryHash",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Tag Gallery Item"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

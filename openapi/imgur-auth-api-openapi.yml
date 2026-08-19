@@ -1,0 +1,122 @@
+openapi: 3.2.0
+info:
+  title: Imgur Auth API
+  version: '3.0'
+  description: Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.
+  contact:
+    name: Imgur API Support
+    url: https://help.imgur.com/
+  license:
+    name: Imgur API Terms
+    url: https://imgur.com/tos
+servers:
+- url: https://api.imgur.com
+  description: Imgur API root
+security:
+- ClientId: []
+- OAuth2: []
+tags:
+- name: Auth
+  description: OAuth2 token issuance and refresh.
+paths:
+  /oauth2/authorize:
+    get:
+      tags:
+      - Auth
+      summary: Authorize User
+      operationId: authorizeUser
+      description: Begin the OAuth2 authorization-code or token grant flow.
+      parameters:
+      - name: client_id
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: response_type
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - code
+          - token
+          - pin
+      - name: state
+        in: query
+        schema:
+          type: string
+      responses:
+        '302':
+          description: Redirect To Configured Callback With Code Or Token.
+  /oauth2/token:
+    post:
+      tags:
+      - Auth
+      summary: Issue Access Token
+      operationId: issueAccessToken
+      description: Exchange an authorization code, refresh token, or PIN for an access token.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - client_id
+              - client_secret
+              - grant_type
+              properties:
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                grant_type:
+                  type: string
+                  enum:
+                  - authorization_code
+                  - refresh_token
+                  - pin
+                code:
+                  type: string
+                refresh_token:
+                  type: string
+                pin:
+                  type: string
+      responses:
+        '200':
+          description: New Access Token Issued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+components:
+  schemas:
+    AccessToken:
+      type: object
+      properties:
+        access_token:
+          type: string
+        refresh_token:
+          type: string
+        expires_in:
+          type: integer
+        token_type:
+          type: string
+        account_id:
+          type: integer
+        account_username:
+          type: string
+  securitySchemes:
+    ClientId:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Anonymous access. Header value: `Client-ID <CLIENT_ID>`.'
+    OAuth2:
+      type: oauth2
+      description: Per-user OAuth2 authorization.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.imgur.com/oauth2/authorize
+          tokenUrl: https://api.imgur.com/oauth2/token
+          scopes: {}

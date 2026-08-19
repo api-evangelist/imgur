@@ -1,0 +1,85 @@
+openapi: 3.2.0
+info:
+  title: Imgur Topic API
+  version: '3.0'
+  description: Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.
+  contact:
+    name: Imgur API Support
+    url: https://help.imgur.com/
+  license:
+    name: Imgur API Terms
+    url: https://imgur.com/tos
+servers:
+- url: https://api.imgur.com
+  description: Imgur API root
+security:
+- ClientId: []
+- OAuth2: []
+tags:
+- name: Topic
+  description: Topic listings and topic galleries.
+paths:
+  /3/topics/defaults:
+    get:
+      tags:
+      - Topic
+      summary: Get Default Topics
+      operationId: getDefaultTopics
+      responses:
+        '200':
+          description: Default Topic List.
+  /3/topics/{topicId}/{sort}/{window}/{page}:
+    get:
+      tags:
+      - Topic
+      summary: Get Topic Gallery
+      operationId: getTopicGallery
+      parameters:
+      - name: topicId
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: sort
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - viral
+          - top
+          - time
+      - name: window
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+          - year
+          - all
+      - name: page
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Topic Gallery.
+components:
+  securitySchemes:
+    ClientId:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Anonymous access. Header value: `Client-ID <CLIENT_ID>`.'
+    OAuth2:
+      type: oauth2
+      description: Per-user OAuth2 authorization.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.imgur.com/oauth2/authorize
+          tokenUrl: https://api.imgur.com/oauth2/token
+          scopes: {}

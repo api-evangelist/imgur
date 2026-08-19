@@ -1,0 +1,45 @@
+openapi: 3.2.0
+info:
+  title: Imgur Memegen API
+  version: '3.0'
+  description: Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.
+  contact:
+    name: Imgur API Support
+    url: https://help.imgur.com/
+  license:
+    name: Imgur API Terms
+    url: https://imgur.com/tos
+servers:
+- url: https://api.imgur.com
+  description: Imgur API root
+security:
+- ClientId: []
+- OAuth2: []
+tags:
+- name: Memegen
+  description: Meme generation and meme defaults.
+paths:
+  /3/memegen/defaults:
+    get:
+      tags:
+      - Memegen
+      summary: Get Meme Defaults
+      operationId: getMemeDefaults
+      responses:
+        '200':
+          description: Default Meme List.
+components:
+  securitySchemes:
+    ClientId:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Anonymous access. Header value: `Client-ID <CLIENT_ID>`.'
+    OAuth2:
+      type: oauth2
+      description: Per-user OAuth2 authorization.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.imgur.com/oauth2/authorize
+          tokenUrl: https://api.imgur.com/oauth2/token
+          scopes: {}

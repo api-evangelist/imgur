@@ -1,0 +1,197 @@
+openapi: 3.2.0
+info:
+  title: Imgur Account API
+  version: '3.0'
+  description: Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.
+  contact:
+    name: Imgur API Support
+    url: https://help.imgur.com/
+  license:
+    name: Imgur API Terms
+    url: https://imgur.com/tos
+servers:
+- url: https://api.imgur.com
+  description: Imgur API root
+security:
+- ClientId: []
+- OAuth2: []
+tags:
+- name: Account
+  description: 'Account-scoped data: profile, images, albums, favorites, settings, notifications.'
+paths:
+  /3/account/{username}:
+    get:
+      tags:
+      - Account
+      summary: Get Account
+      operationId: getAccount
+      parameters:
+      - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Account Profile.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /3/account/{username}/images:
+    get:
+      tags:
+      - Account
+      summary: Get Account Images
+      operationId: getAccountImages
+      parameters:
+      - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Image List.
+  /3/account/{username}/albums:
+    get:
+      tags:
+      - Account
+      summary: Get Account Albums
+      operationId: getAccountAlbums
+      parameters:
+      - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Album List.
+  /3/account/{username}/comments:
+    get:
+      tags:
+      - Account
+      summary: Get Account Comments
+      operationId: getAccountComments
+      parameters:
+      - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Comment List.
+  /3/account/{username}/favorites:
+    get:
+      tags:
+      - Account
+      summary: Get Account Favorites
+      operationId: getAccountFavorites
+      parameters:
+      - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Favorite List.
+  /3/account/{username}/gallery_favorites:
+    get:
+      tags:
+      - Account
+      summary: Get Gallery Favorites
+      operationId: getAccountGalleryFavorites
+      parameters:
+      - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Gallery Favorite List.
+  /3/account/{username}/submissions:
+    get:
+      tags:
+      - Account
+      summary: Get Account Submissions
+      operationId: getAccountSubmissions
+      parameters:
+      - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Submission List.
+  /3/account/{username}/settings:
+    get:
+      tags:
+      - Account
+      summary: Get Account Settings
+      operationId: getAccountSettings
+      parameters:
+      - $ref: '#/components/parameters/Username'
+      responses:
+        '200':
+          description: Settings.
+    put:
+      tags:
+      - Account
+      summary: Update Account Settings
+      operationId: updateAccountSettings
+      parameters:
+      - $ref: '#/components/parameters/Username'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                bio:
+                  type: string
+                public_images:
+                  type: boolean
+                messaging_enabled:
+                  type: boolean
+                album_privacy:
+                  type: string
+                accepted_gallery_terms:
+                  type: boolean
+                username:
+                  type: string
+                show_mature:
+                  type: boolean
+                newsletter_subscribed:
+                  type: boolean
+      responses:
+        '200':
+          description: Settings Updated.
+  /3/account/me/notifications:
+    get:
+      tags:
+      - Account
+      summary: Get Account Notifications
+      operationId: getAccountNotifications
+      responses:
+        '200':
+          description: Notification List.
+  /3/credits:
+    get:
+      tags:
+      - Account
+      summary: Get Rate Limit Credits
+      operationId: getRateLimitCredits
+      description: Return remaining client and user credits.
+      responses:
+        '200':
+          description: Credit Status.
+components:
+  parameters:
+    Username:
+      name: username
+      in: path
+      required: true
+      description: Account username, or "me" for the authenticated user.
+      schema:
+        type: string
+  schemas:
+    BasicResponse:
+      type: object
+      properties:
+        data:
+          description: Operation-specific payload.
+        success:
+          type: boolean
+        status:
+          type: integer
+  securitySchemes:
+    ClientId:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Anonymous access. Header value: `Client-ID <CLIENT_ID>`.'
+    OAuth2:
+      type: oauth2
+      description: Per-user OAuth2 authorization.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.imgur.com/oauth2/authorize
+          tokenUrl: https://api.imgur.com/oauth2/token
+          scopes: {}

@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Imgur Comment API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Comment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/comment/:commentId",
+            "params": [
+              {
+                "name": "commentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Comment"
+        },
+        {
+          "info": {
+            "name": "Delete Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.imgur.com/3/comment/:commentId",
+            "params": [
+              {
+                "name": "commentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Comment"
+        },
+        {
+          "info": {
+            "name": "Create Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgur.com/3/comment",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "image_id",
+                  "value": ""
+                },
+                {
+                  "name": "comment",
+                  "value": ""
+                },
+                {
+                  "name": "parent_id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create Comment"
+        },
+        {
+          "info": {
+            "name": "Reply To Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgur.com/3/comment/:commentId/reply",
+            "params": [
+              {
+                "name": "commentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "image_id",
+                  "value": ""
+                },
+                {
+                  "name": "comment",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Reply To Comment"
+        },
+        {
+          "info": {
+            "name": "Vote On Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgur.com/3/comment/:commentId/vote/:vote",
+            "params": [
+              {
+                "name": "commentId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "vote",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Vote On Comment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

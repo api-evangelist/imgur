@@ -1,0 +1,140 @@
+openapi: 3.2.0
+info:
+  title: Imgur Comment API
+  version: '3.0'
+  description: Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.
+  contact:
+    name: Imgur API Support
+    url: https://help.imgur.com/
+  license:
+    name: Imgur API Terms
+    url: https://imgur.com/tos
+servers:
+- url: https://api.imgur.com
+  description: Imgur API root
+security:
+- ClientId: []
+- OAuth2: []
+tags:
+- name: Comment
+  description: Comments on gallery items.
+paths:
+  /3/comment/{commentId}:
+    get:
+      tags:
+      - Comment
+      summary: Get Comment
+      operationId: getComment
+      parameters:
+      - name: commentId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Comment Details.
+    delete:
+      tags:
+      - Comment
+      summary: Delete Comment
+      operationId: deleteComment
+      parameters:
+      - name: commentId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Comment Deleted.
+  /3/comment:
+    post:
+      tags:
+      - Comment
+      summary: Create Comment
+      operationId: createComment
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - image_id
+              - comment
+              properties:
+                image_id:
+                  type: string
+                comment:
+                  type: string
+                parent_id:
+                  type: string
+      responses:
+        '200':
+          description: Comment Created.
+  /3/comment/{commentId}/reply:
+    post:
+      tags:
+      - Comment
+      summary: Reply To Comment
+      operationId: replyToComment
+      parameters:
+      - name: commentId
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - image_id
+              - comment
+              properties:
+                image_id:
+                  type: string
+                comment:
+                  type: string
+      responses:
+        '200':
+          description: Reply Posted.
+  /3/comment/{commentId}/vote/{vote}:
+    post:
+      tags:
+      - Comment
+      summary: Vote On Comment
+      operationId: voteOnComment
+      parameters:
+      - name: commentId
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: vote
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - up
+          - down
+      responses:
+        '200':
+          description: Vote Recorded.
+components:
+  securitySchemes:
+    ClientId:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Anonymous access. Header value: `Client-ID <CLIENT_ID>`.'
+    OAuth2:
+      type: oauth2
+      description: Per-user OAuth2 authorization.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.imgur.com/oauth2/authorize
+          tokenUrl: https://api.imgur.com/oauth2/token
+          scopes: {}

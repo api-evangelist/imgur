@@ -1,0 +1,182 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Imgur Album API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Album",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Album",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/album/:albumHash",
+            "params": [
+              {
+                "name": "albumHash",
+                "value": "",
+                "type": "path",
+                "description": "The album's seven-character hash."
+              }
+            ]
+          },
+          "docs": "Get Album"
+        },
+        {
+          "info": {
+            "name": "Update Album",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.imgur.com/3/album/:albumHash",
+            "params": [
+              {
+                "name": "albumHash",
+                "value": "",
+                "type": "path",
+                "description": "The album's seven-character hash."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "title",
+                  "value": ""
+                },
+                {
+                  "name": "description",
+                  "value": ""
+                },
+                {
+                  "name": "ids",
+                  "value": ""
+                },
+                {
+                  "name": "privacy",
+                  "value": ""
+                },
+                {
+                  "name": "layout",
+                  "value": ""
+                },
+                {
+                  "name": "cover",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Update Album"
+        },
+        {
+          "info": {
+            "name": "Delete Album",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.imgur.com/3/album/:albumHash",
+            "params": [
+              {
+                "name": "albumHash",
+                "value": "",
+                "type": "path",
+                "description": "The album's seven-character hash."
+              }
+            ]
+          },
+          "docs": "Delete Album"
+        },
+        {
+          "info": {
+            "name": "Create Album",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgur.com/3/album",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "title",
+                  "value": ""
+                },
+                {
+                  "name": "description",
+                  "value": ""
+                },
+                {
+                  "name": "ids",
+                  "value": ""
+                },
+                {
+                  "name": "privacy",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create Album"
+        },
+        {
+          "info": {
+            "name": "Get Album Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/album/:albumHash/images",
+            "params": [
+              {
+                "name": "albumHash",
+                "value": "",
+                "type": "path",
+                "description": "The album's seven-character hash."
+              }
+            ]
+          },
+          "docs": "Get Album Images"
+        },
+        {
+          "info": {
+            "name": "Favorite Album",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgur.com/3/album/:albumHash/favorite",
+            "params": [
+              {
+                "name": "albumHash",
+                "value": "",
+                "type": "path",
+                "description": "The album's seven-character hash."
+              }
+            ]
+          },
+          "docs": "Favorite Album"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

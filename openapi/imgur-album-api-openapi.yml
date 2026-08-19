@@ -1,0 +1,169 @@
+openapi: 3.2.0
+info:
+  title: Imgur Album API
+  version: '3.0'
+  description: Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.
+  contact:
+    name: Imgur API Support
+    url: https://help.imgur.com/
+  license:
+    name: Imgur API Terms
+    url: https://imgur.com/tos
+servers:
+- url: https://api.imgur.com
+  description: Imgur API root
+security:
+- ClientId: []
+- OAuth2: []
+tags:
+- name: Album
+  description: Album creation, retrieval, and image-management operations.
+paths:
+  /3/album/{albumHash}:
+    get:
+      tags:
+      - Album
+      summary: Get Album
+      operationId: getAlbum
+      parameters:
+      - $ref: '#/components/parameters/AlbumHash'
+      responses:
+        '200':
+          description: Album Metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+    delete:
+      tags:
+      - Album
+      summary: Delete Album
+      operationId: deleteAlbum
+      parameters:
+      - $ref: '#/components/parameters/AlbumHash'
+      responses:
+        '200':
+          description: Album Deleted.
+    put:
+      tags:
+      - Album
+      summary: Update Album
+      operationId: updateAlbum
+      parameters:
+      - $ref: '#/components/parameters/AlbumHash'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                ids:
+                  type: array
+                  items:
+                    type: string
+                privacy:
+                  type: string
+                  enum:
+                  - public
+                  - hidden
+                  - secret
+                layout:
+                  type: string
+                  enum:
+                  - blog
+                  - grid
+                  - horizontal
+                  - vertical
+                cover:
+                  type: string
+      responses:
+        '200':
+          description: Album Updated.
+  /3/album:
+    post:
+      tags:
+      - Album
+      summary: Create Album
+      operationId: createAlbum
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                ids:
+                  type: array
+                  items:
+                    type: string
+                privacy:
+                  type: string
+                  enum:
+                  - public
+                  - hidden
+                  - secret
+      responses:
+        '200':
+          description: Album Created.
+  /3/album/{albumHash}/images:
+    get:
+      tags:
+      - Album
+      summary: Get Album Images
+      operationId: getAlbumImages
+      parameters:
+      - $ref: '#/components/parameters/AlbumHash'
+      responses:
+        '200':
+          description: Image List.
+  /3/album/{albumHash}/favorite:
+    post:
+      tags:
+      - Album
+      summary: Favorite Album
+      operationId: favoriteAlbum
+      parameters:
+      - $ref: '#/components/parameters/AlbumHash'
+      responses:
+        '200':
+          description: Favorite Toggled.
+components:
+  parameters:
+    AlbumHash:
+      name: albumHash
+      in: path
+      required: true
+      description: The album's seven-character hash.
+      schema:
+        type: string
+  schemas:
+    BasicResponse:
+      type: object
+      properties:
+        data:
+          description: Operation-specific payload.
+        success:
+          type: boolean
+        status:
+          type: integer
+  securitySchemes:
+    ClientId:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Anonymous access. Header value: `Client-ID <CLIENT_ID>`.'
+    OAuth2:
+      type: oauth2
+      description: Per-user OAuth2 authorization.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.imgur.com/oauth2/authorize
+          tokenUrl: https://api.imgur.com/oauth2/token
+          scopes: {}

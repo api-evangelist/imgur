@@ -1,0 +1,256 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Imgur Account API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/account/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Account username, or \"me\" for the authenticated user."
+              }
+            ]
+          },
+          "docs": "Get Account"
+        },
+        {
+          "info": {
+            "name": "Get Account Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/account/:username/images",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Account username, or \"me\" for the authenticated user."
+              }
+            ]
+          },
+          "docs": "Get Account Images"
+        },
+        {
+          "info": {
+            "name": "Get Account Albums",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/account/:username/albums",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Account username, or \"me\" for the authenticated user."
+              }
+            ]
+          },
+          "docs": "Get Account Albums"
+        },
+        {
+          "info": {
+            "name": "Get Account Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/account/:username/comments",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Account username, or \"me\" for the authenticated user."
+              }
+            ]
+          },
+          "docs": "Get Account Comments"
+        },
+        {
+          "info": {
+            "name": "Get Account Favorites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/account/:username/favorites",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Account username, or \"me\" for the authenticated user."
+              }
+            ]
+          },
+          "docs": "Get Account Favorites"
+        },
+        {
+          "info": {
+            "name": "Get Gallery Favorites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/account/:username/gallery_favorites",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Account username, or \"me\" for the authenticated user."
+              }
+            ]
+          },
+          "docs": "Get Gallery Favorites"
+        },
+        {
+          "info": {
+            "name": "Get Account Submissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/account/:username/submissions",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Account username, or \"me\" for the authenticated user."
+              }
+            ]
+          },
+          "docs": "Get Account Submissions"
+        },
+        {
+          "info": {
+            "name": "Get Account Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/account/:username/settings",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Account username, or \"me\" for the authenticated user."
+              }
+            ]
+          },
+          "docs": "Get Account Settings"
+        },
+        {
+          "info": {
+            "name": "Update Account Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.imgur.com/3/account/:username/settings",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Account username, or \"me\" for the authenticated user."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "bio",
+                  "value": ""
+                },
+                {
+                  "name": "public_images",
+                  "value": ""
+                },
+                {
+                  "name": "messaging_enabled",
+                  "value": ""
+                },
+                {
+                  "name": "album_privacy",
+                  "value": ""
+                },
+                {
+                  "name": "accepted_gallery_terms",
+                  "value": ""
+                },
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "show_mature",
+                  "value": ""
+                },
+                {
+                  "name": "newsletter_subscribed",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Update Account Settings"
+        },
+        {
+          "info": {
+            "name": "Get Account Notifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/account/me/notifications"
+          },
+          "docs": "Get Account Notifications"
+        },
+        {
+          "info": {
+            "name": "Get Rate Limit Credits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/credits"
+          },
+          "docs": "Return remaining client and user credits."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

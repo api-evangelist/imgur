@@ -1,0 +1,196 @@
+openapi: 3.2.0
+info:
+  title: Imgur Gallery API
+  version: '3.0'
+  description: Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.
+  contact:
+    name: Imgur API Support
+    url: https://help.imgur.com/
+  license:
+    name: Imgur API Terms
+    url: https://imgur.com/tos
+servers:
+- url: https://api.imgur.com
+  description: Imgur API root
+security:
+- ClientId: []
+- OAuth2: []
+tags:
+- name: Gallery
+  description: Public gallery listing, voting, sharing, and reporting.
+paths:
+  /3/gallery/{section}/{sort}/{window}/{page}:
+    get:
+      tags:
+      - Gallery
+      summary: Get Gallery
+      operationId: getGallery
+      parameters:
+      - name: section
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - hot
+          - top
+          - user
+      - name: sort
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - viral
+          - top
+          - time
+          - rising
+      - name: window
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+          - year
+          - all
+      - name: page
+        in: path
+        required: true
+        schema:
+          type: integer
+          default: 0
+      responses:
+        '200':
+          description: Gallery Items.
+  /3/gallery/search:
+    get:
+      tags:
+      - Gallery
+      summary: Search Gallery
+      operationId: searchGallery
+      parameters:
+      - name: q
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: sort
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Search Results.
+  /3/gallery/image/{galleryHash}:
+    get:
+      tags:
+      - Gallery
+      summary: Get Gallery Image
+      operationId: getGalleryImage
+      parameters:
+      - name: galleryHash
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Gallery Image.
+  /3/gallery/album/{galleryHash}:
+    get:
+      tags:
+      - Gallery
+      summary: Get Gallery Album
+      operationId: getGalleryAlbum
+      parameters:
+      - name: galleryHash
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Gallery Album.
+  /3/gallery/{galleryHash}/vote/{vote}:
+    post:
+      tags:
+      - Gallery
+      summary: Vote On Gallery Item
+      operationId: voteGalleryItem
+      parameters:
+      - name: galleryHash
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: vote
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - up
+          - down
+          - veto
+      responses:
+        '200':
+          description: Vote Recorded.
+  /3/gallery/{galleryHash}/report:
+    post:
+      tags:
+      - Gallery
+      summary: Report Gallery Item
+      operationId: reportGalleryItem
+      parameters:
+      - name: galleryHash
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Report Submitted.
+  /3/gallery/image:
+    post:
+      tags:
+      - Gallery
+      summary: Submit Image To Gallery
+      operationId: submitImageToGallery
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - title
+              properties:
+                title:
+                  type: string
+                topic:
+                  type: string
+                terms:
+                  type: integer
+                  enum:
+                  - 0
+                  - 1
+      responses:
+        '200':
+          description: Image Submitted.
+components:
+  securitySchemes:
+    ClientId:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Anonymous access. Header value: `Client-ID <CLIENT_ID>`.'
+    OAuth2:
+      type: oauth2
+      description: Per-user OAuth2 authorization.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.imgur.com/oauth2/authorize
+          tokenUrl: https://api.imgur.com/oauth2/token
+          scopes: {}

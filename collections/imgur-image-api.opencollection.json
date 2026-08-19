@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Imgur Image API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Image",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgur.com/3/image",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "image",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "type",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "description",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "album",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload an image (binary, base64, or URL)."
+        },
+        {
+          "info": {
+            "name": "Get Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/image/:imageHash",
+            "params": [
+              {
+                "name": "imageHash",
+                "value": "",
+                "type": "path",
+                "description": "The image's seven-character hash (e.g. \"AbCdEfG\")."
+              }
+            ]
+          },
+          "docs": "Get Image"
+        },
+        {
+          "info": {
+            "name": "Update Image Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgur.com/3/image/:imageHash",
+            "params": [
+              {
+                "name": "imageHash",
+                "value": "",
+                "type": "path",
+                "description": "The image's seven-character hash (e.g. \"AbCdEfG\")."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "title",
+                  "value": ""
+                },
+                {
+                  "name": "description",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Update Image Information"
+        },
+        {
+          "info": {
+            "name": "Delete Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.imgur.com/3/image/:imageHash",
+            "params": [
+              {
+                "name": "imageHash",
+                "value": "",
+                "type": "path",
+                "description": "The image's seven-character hash (e.g. \"AbCdEfG\")."
+              }
+            ]
+          },
+          "docs": "Delete Image"
+        },
+        {
+          "info": {
+            "name": "Favorite Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.imgur.com/3/image/:imageHash/favorite",
+            "params": [
+              {
+                "name": "imageHash",
+                "value": "",
+                "type": "path",
+                "description": "The image's seven-character hash (e.g. \"AbCdEfG\")."
+              }
+            ]
+          },
+          "docs": "Favorite Image"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

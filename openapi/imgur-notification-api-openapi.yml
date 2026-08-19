@@ -1,0 +1,74 @@
+openapi: 3.2.0
+info:
+  title: Imgur Notification API
+  version: '3.0'
+  description: Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.
+  contact:
+    name: Imgur API Support
+    url: https://help.imgur.com/
+  license:
+    name: Imgur API Terms
+    url: https://imgur.com/tos
+servers:
+- url: https://api.imgur.com
+  description: Imgur API root
+security:
+- ClientId: []
+- OAuth2: []
+tags:
+- name: Notification
+  description: User notification retrieval and dismissal.
+paths:
+  /3/account/me/notifications:
+    get:
+      tags:
+      - Notification
+      summary: Get Account Notifications
+      operationId: getAccountNotifications
+      responses:
+        '200':
+          description: Notification List.
+  /3/notification/{notificationId}:
+    get:
+      tags:
+      - Notification
+      summary: Get Notification
+      operationId: getNotification
+      parameters:
+      - name: notificationId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Notification Details.
+    post:
+      tags:
+      - Notification
+      summary: Mark Notification Viewed
+      operationId: markNotificationViewed
+      parameters:
+      - name: notificationId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Notification Marked Viewed.
+components:
+  securitySchemes:
+    ClientId:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Anonymous access. Header value: `Client-ID <CLIENT_ID>`.'
+    OAuth2:
+      type: oauth2
+      description: Per-user OAuth2 authorization.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.imgur.com/oauth2/authorize
+          tokenUrl: https://api.imgur.com/oauth2/token
+          scopes: {}

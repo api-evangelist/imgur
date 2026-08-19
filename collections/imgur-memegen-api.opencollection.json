@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Imgur Memegen API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Memegen",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Meme Defaults",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.imgur.com/3/memegen/defaults"
+          },
+          "docs": "Get Meme Defaults"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
