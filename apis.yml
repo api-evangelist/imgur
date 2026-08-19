@@ -18,7 +18,7 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://s.imgur.com/images/favicon-152.png
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 type: API
 created: '2026-05-28'
 modified: '2026-05-30'
