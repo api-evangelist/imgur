@@ -28,6 +28,16 @@ x-tier: 2
 x-tier-reason: pipeline-enriched
 tags:
   - Photography
+  - Image
+  - Image Hosting
+  - Albums
+  - Gallery
+  - Social
+  - Memes
+  - Content Sharing
+  - Public APIs
+tags_raw:
+  - Photography
   - Images
   - Image Hosting
   - Albums
@@ -167,6 +177,8 @@ apis:
   humanURL: https://apidocs.imgur.com/
   baseURL: https://api.imgur.com/3/
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
