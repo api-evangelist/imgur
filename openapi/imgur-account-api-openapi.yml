@@ -163,14 +163,6 @@ paths:
         '200':
           description: Credit Status.
 components:
-  parameters:
-    Username:
-      name: username
-      in: path
-      required: true
-      description: Account username, or "me" for the authenticated user.
-      schema:
-        type: string
   schemas:
     BasicResponse:
       type: object
@@ -181,6 +173,14 @@ components:
           type: boolean
         status:
           type: integer
+  parameters:
+    Username:
+      name: username
+      in: path
+      required: true
+      description: Account username, or "me" for the authenticated user.
+      schema:
+        type: string
   securitySchemes:
     ClientId:
       type: apiKey

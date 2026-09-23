@@ -135,14 +135,6 @@ paths:
         '200':
           description: Favorite Toggled.
 components:
-  parameters:
-    AlbumHash:
-      name: albumHash
-      in: path
-      required: true
-      description: The album's seven-character hash.
-      schema:
-        type: string
   schemas:
     BasicResponse:
       type: object
@@ -153,6 +145,14 @@ components:
           type: boolean
         status:
           type: integer
+  parameters:
+    AlbumHash:
+      name: albumHash
+      in: path
+      required: true
+      description: The album's seven-character hash.
+      schema:
+        type: string
   securitySchemes:
     ClientId:
       type: apiKey

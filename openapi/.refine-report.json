@@ -1,16 +1,7 @@
 {
   "provider": "imgur",
   "sources": [
-    "imgur-account-api-openapi.yml",
-    "imgur-album-api-openapi.yml",
-    "imgur-auth-api-openapi.yml",
-    "imgur-comment-api-openapi.yml",
-    "imgur-gallery-api-openapi.yml",
-    "imgur-image-api-openapi.yml",
-    "imgur-memegen-api-openapi.yml",
-    "imgur-notification-api-openapi.yml",
-    "imgur-tags-api-openapi.yml",
-    "imgur-topic-api-openapi.yml"
+    "_original/imgur-openapi.yml"
   ],
   "outputs": [
     "imgur-account-api-openapi.yml",
@@ -28,17 +19,20 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "imgur-account-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "imgur-album-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "imgur-auth-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "imgur-comment-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "imgur-gallery-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "imgur-image-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "imgur-memegen-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "imgur-notification-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "imgur-tags-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "imgur-topic-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "imgur-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "imgur-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "imgur-album-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "imgur-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "imgur-comment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "imgur-gallery-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "imgur-image-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "imgur-memegen-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "imgur-notification-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "imgur-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "imgur-topic-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
