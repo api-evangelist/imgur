@@ -112,6 +112,14 @@ paths:
         '200':
           description: Favorite Toggled.
 components:
+  parameters:
+    ImageHash:
+      name: imageHash
+      in: path
+      required: true
+      description: The image's seven-character hash (e.g. "AbCdEfG").
+      schema:
+        type: string
   schemas:
     BasicResponse:
       type: object
@@ -122,14 +130,6 @@ components:
           type: boolean
         status:
           type: integer
-  parameters:
-    ImageHash:
-      name: imageHash
-      in: path
-      required: true
-      description: The image's seven-character hash (e.g. "AbCdEfG").
-      schema:
-        type: string
   securitySchemes:
     ClientId:
       type: apiKey
