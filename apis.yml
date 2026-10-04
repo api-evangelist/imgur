@@ -38,6 +38,10 @@ x-source: public-apis/public-apis
 x-category: Photography
 x-tier: 2
 x-tier-reason: pipeline-enriched
+x-docs-platform: postman
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-10-03
+x-docs-hosting: fastly
 tags:
   - Photography
   - Image
