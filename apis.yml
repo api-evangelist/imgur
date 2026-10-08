@@ -686,6 +686,12 @@ apis:
   - type: FinOps
     url: finops/imgur-finops.yml
 common:
+  - type: Plans
+    url: plans/imgur-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/imgur-rate-limits.yml
+  - type: FinOps
+    url: finops/imgur-finops.yml
   - type: DomainSecurity
     url: security/imgur-domain-security.yml
   - type: Website
