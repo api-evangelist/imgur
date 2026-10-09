@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-05-30 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-05-30'
 apiCommonsPlansVersion: '0.1'
 provider:
   id: imgur
@@ -83,3 +88,34 @@ notes:
   - Imgur's classic free Client-ID tier is the canonical entry point for hobby, OSS, and personal use.
   - Commercial deployments must use RapidAPI's metered tiers (Basic, Pro, Ultra, Mega) per Imgur ToS.
   - There is no longer an "Imgur Pro" subscription plan for the API itself; legacy Pro accounts have no impact on API quotas.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  units: []
+  plans:
+  - name: Free (Client-ID)
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: RapidAPI Basic
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: RapidAPI Pro
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: RapidAPI Ultra
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
