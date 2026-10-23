@@ -686,6 +686,8 @@ apis:
   - type: FinOps
     url: finops/imgur-finops.yml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/imgur/overview
   - type: Plans
     url: plans/imgur-plans-pricing.yml
   - type: RateLimits
