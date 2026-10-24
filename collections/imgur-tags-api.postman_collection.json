@@ -1,280 +1,293 @@
 {
+  "info": {
+    "_postman_id": "75993251-74aa-4558-b5bb-66e6afd58238",
+    "name": "Imgur Tags API",
+    "description": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform \u2014 uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:07:01.000Z",
+    "updatedAt": "2026-10-21T20:07:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-75993251-74aa-4558-b5bb-66e6afd58238"
+  },
   "item": [
     {
-      "id": "447d0410-d48d-474d-baa8-2e37d58e54e4",
-      "name": "Tags",
-      "description": {
-        "content": "Tag-based gallery browsing and tagging of gallery items.",
-        "type": "text/plain"
-      },
+      "name": "3",
       "item": [
         {
-          "id": "bb5e28ee-5910-4bd1-83ac-209662ffaeb5",
-          "name": "Get Default Tags",
-          "request": {
-            "name": "Get Default Tags",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "tags"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "tags",
+          "item": [
             {
-              "id": "d6dad672-5f86-4b51-930d-bf95f35d74f8",
-              "name": "Default Tag List.",
-              "originalRequest": {
+              "name": "Get Default Tags",
+              "id": "51cf0c14-3e22-4908-becb-0008ae3a0538",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
                 "url": {
+                  "raw": "{{baseUrl}}/3/tags",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "3",
                     "tags"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "d7479f31-17c9-42d8-8410-c91c76d39d06",
+                  "name": "Default Tag List.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/3/tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "tags"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:07:02.000Z",
+                  "updatedAt": "2026-10-21T20:07:02.000Z",
+                  "uid": "35240-d7479f31-17c9-42d8-8410-c91c76d39d06"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T20:07:02.000Z",
+              "updatedAt": "2026-10-21T20:07:02.000Z",
+              "uid": "35240-51cf0c14-3e22-4908-becb-0008ae3a0538"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "e1bb1b05-fe50-45a3-b809-5775e9a67590",
+          "createdAt": "2026-10-21T20:07:02.000Z",
+          "updatedAt": "2026-10-21T20:07:02.000Z",
+          "uid": "35240-e1bb1b05-fe50-45a3-b809-5775e9a67590"
         },
         {
-          "id": "521b6b80-bb1a-4864-84b4-5af45665dbb8",
-          "name": "Get Tag Gallery",
-          "request": {
-            "name": "Get Tag Gallery",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "gallery",
-                "t",
-                ":tagName"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "tagName",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "gallery",
+          "item": [
             {
-              "id": "5d133924-35ea-4d91-9c23-0784f4b54176",
-              "name": "Tag Gallery.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "gallery",
-                    "t",
-                    ":tagName"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "tagName",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "t",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "{tagName}",
+                  "item": [
+                    {
+                      "name": "{galleryHash}",
+                      "item": [
+                        {
+                          "name": "Get Tag Gallery Item",
+                          "id": "db6433b8-b3c7-4a8d-8a46-203955ccf3ff",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/gallery/t/:tagName/:galleryHash",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "gallery",
+                                "t",
+                                ":tagName",
+                                ":galleryHash"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ab82ad33-64db-4d90-b27b-b2dac8596692",
+                                  "key": "tagName",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "40ac4b25-f589-4e18-9396-e63ea210ab72",
+                                  "key": "galleryHash",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "0bb4e512-a506-4e13-a6c8-b73547c2ca0c",
+                              "name": "Tag Gallery Item.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/3/gallery/t/:tagName/:galleryHash",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "3",
+                                    "gallery",
+                                    "t",
+                                    ":tagName",
+                                    ":galleryHash"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "tagName"
+                                    },
+                                    {
+                                      "key": "galleryHash"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:07:02.000Z",
+                              "updatedAt": "2026-10-21T20:07:02.000Z",
+                              "uid": "35240-0bb4e512-a506-4e13-a6c8-b73547c2ca0c"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:02.000Z",
+                          "updatedAt": "2026-10-21T20:07:02.000Z",
+                          "uid": "35240-db6433b8-b3c7-4a8d-8a46-203955ccf3ff"
+                        }
+                      ],
+                      "id": "b7e2e191-192c-480e-858c-5c4891bc48bb",
+                      "createdAt": "2026-10-21T20:07:02.000Z",
+                      "updatedAt": "2026-10-21T20:07:02.000Z",
+                      "uid": "35240-b7e2e191-192c-480e-858c-5c4891bc48bb"
+                    },
+                    {
+                      "name": "Get Tag Gallery",
+                      "id": "c7c431ad-43f0-4625-87f5-2b4e1ad12f4d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/gallery/t/:tagName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "gallery",
+                            "t",
+                            ":tagName"
+                          ],
+                          "variable": [
+                            {
+                              "id": "86338c88-0979-44e6-83b9-5775c076c9ec",
+                              "key": "tagName",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9f4336f7-8027-4c3b-b6aa-884abbe98676",
+                          "name": "Tag Gallery.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/gallery/t/:tagName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "gallery",
+                                "t",
+                                ":tagName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "tagName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:07:02.000Z",
+                          "updatedAt": "2026-10-21T20:07:02.000Z",
+                          "uid": "35240-9f4336f7-8027-4c3b-b6aa-884abbe98676"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:02.000Z",
+                      "updatedAt": "2026-10-21T20:07:02.000Z",
+                      "uid": "35240-c7c431ad-43f0-4625-87f5-2b4e1ad12f4d"
+                    }
+                  ],
+                  "id": "0f218369-5312-4569-a2ab-a7b822538ff9",
+                  "createdAt": "2026-10-21T20:07:02.000Z",
+                  "updatedAt": "2026-10-21T20:07:02.000Z",
+                  "uid": "35240-0f218369-5312-4569-a2ab-a7b822538ff9"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "c901f630-4320-4905-a9c1-d9fb55e2fea1",
+              "createdAt": "2026-10-21T20:07:02.000Z",
+              "updatedAt": "2026-10-21T20:07:02.000Z",
+              "uid": "35240-c901f630-4320-4905-a9c1-d9fb55e2fea1"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c09600cb-eba3-42d1-b5ee-2ebb0f3575e4",
-          "name": "Get Tag Gallery Item",
-          "request": {
-            "name": "Get Tag Gallery Item",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "gallery",
-                "t",
-                ":tagName",
-                ":galleryHash"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "tagName",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "galleryHash",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "93872f38-a3a8-446e-9fc7-6febf9db1e59",
-              "name": "Tag Gallery Item.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "gallery",
-                    "t",
-                    ":tagName",
-                    ":galleryHash"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "tagName",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "galleryHash",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "ad7c4b18-3e2b-40b5-8f2d-4471b285911b",
+          "createdAt": "2026-10-21T20:07:02.000Z",
+          "updatedAt": "2026-10-21T20:07:02.000Z",
+          "uid": "35240-ad7c4b18-3e2b-40b5-8f2d-4471b285911b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.imgur.com",
-      "key": "baseUrl"
+      "id": "1627c3a4-bffb-45e7-b474-6dc31e4dc1a2",
+      "createdAt": "2026-10-21T20:07:02.000Z",
+      "updatedAt": "2026-10-21T20:07:02.000Z",
+      "uid": "35240-1627c3a4-bffb-45e7-b474-6dc31e4dc1a2"
     }
   ],
   "auth": {
@@ -282,25 +295,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "2fd8c396-a34e-467d-8a12-3afc42ef5b60",
-    "name": "Imgur Tags API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.imgur.com"
     }
-  }
+  ]
 }

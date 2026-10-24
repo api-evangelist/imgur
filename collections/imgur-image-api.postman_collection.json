@@ -1,577 +1,545 @@
 {
+  "info": {
+    "_postman_id": "6bf65ecf-27ac-4429-8c85-9ce63957948c",
+    "name": "Imgur Image API",
+    "description": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform \u2014 uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:39.000Z",
+    "updatedAt": "2026-10-21T20:06:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6bf65ecf-27ac-4429-8c85-9ce63957948c"
+  },
   "item": [
     {
-      "id": "4763d67f-79c6-4720-89b5-b3741f8545de",
-      "name": "Image",
-      "description": {
-        "content": "Image upload, retrieval, deletion, favorite, and update operations.",
-        "type": "text/plain"
-      },
+      "name": "3",
       "item": [
         {
-          "id": "71f871ff-4bb9-4163-9a35-fdbea0578755",
-          "name": "Upload Image",
-          "request": {
-            "name": "Upload Image",
-            "description": {
-              "content": "Upload an image (binary, base64, or URL).",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "3",
-                "image"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "multipart/form-data"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "image",
-                  "type": "file",
-                  "description": ""
-                },
-                {
-                  "key": "type",
-                  "value": "<string>",
-                  "type": "text",
-                  "description": " (This can only be one of file,base64,url)"
-                },
-                {
-                  "key": "title",
-                  "value": "<string>",
-                  "type": "text",
-                  "description": ""
-                },
-                {
-                  "key": "description",
-                  "value": "<string>",
-                  "type": "text",
-                  "description": ""
-                },
-                {
-                  "key": "album",
-                  "value": "<string>",
-                  "type": "text",
-                  "description": ""
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "image",
+          "item": [
             {
-              "id": "cf72b6ae-8acb-4abb-905e-88b38045abcc",
-              "name": "Image Uploaded.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "image"
+              "name": "{imageHash}",
+              "item": [
+                {
+                  "name": "favorite",
+                  "item": [
+                    {
+                      "name": "Favorite Image",
+                      "id": "eca5b737-76e4-49ad-b18d-639467c212c7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/image/:imageHash/favorite",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "image",
+                            ":imageHash",
+                            "favorite"
+                          ],
+                          "variable": [
+                            {
+                              "id": "08ceb099-0b2d-42b4-bfbe-62e274dabce9",
+                              "key": "imageHash",
+                              "value": "<string>",
+                              "description": "(Required) The image's seven-character hash (e.g. \"AbCdEfG\")."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "11ca643e-547b-4005-abde-ace5b8404f17",
+                          "name": "Favorite Toggled.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/image/:imageHash/favorite",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "image",
+                                ":imageHash",
+                                "favorite"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "imageHash"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:40.000Z",
+                          "updatedAt": "2026-10-21T20:06:40.000Z",
+                          "uid": "35240-11ca643e-547b-4005-abde-ace5b8404f17"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:40.000Z",
+                      "updatedAt": "2026-10-21T20:06:40.000Z",
+                      "uid": "35240-eca5b737-76e4-49ad-b18d-639467c212c7"
+                    }
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
+                  "id": "9364a917-9026-4a78-bb73-0588fce028ad",
+                  "createdAt": "2026-10-21T20:06:40.000Z",
+                  "updatedAt": "2026-10-21T20:06:40.000Z",
+                  "uid": "35240-9364a917-9026-4a78-bb73-0588fce028ad"
                 },
+                {
+                  "name": "Get Image",
+                  "id": "27b125f8-445f-43d0-8171-f51820a032dd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/3/image/:imageHash",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "image",
+                        ":imageHash"
+                      ],
+                      "variable": [
+                        {
+                          "id": "dba4dad1-990d-47a2-b052-1980dd5130df",
+                          "key": "imageHash",
+                          "value": "<string>",
+                          "description": "(Required) The image's seven-character hash (e.g. \"AbCdEfG\")."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "6b9159b1-05a4-47b4-bdbb-e546a77d0cb3",
+                      "name": "Image Metadata.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/image/:imageHash",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "image",
+                            ":imageHash"
+                          ],
+                          "variable": [
+                            {
+                              "key": "imageHash"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"description\": \"Operation-specific payload.\"\n  },\n  \"success\": \"<boolean>\",\n  \"status\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-21T20:06:40.000Z",
+                      "updatedAt": "2026-10-21T20:06:40.000Z",
+                      "uid": "35240-6b9159b1-05a4-47b4-bdbb-e546a77d0cb3"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:06:40.000Z",
+                  "updatedAt": "2026-10-21T20:06:40.000Z",
+                  "uid": "35240-27b125f8-445f-43d0-8171-f51820a032dd"
+                },
+                {
+                  "name": "Delete Image",
+                  "id": "3444b074-447c-4629-a615-f4f2c21f8550",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/3/image/:imageHash",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "image",
+                        ":imageHash"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8b88dcf3-c33f-4e8b-b62a-2c71496b86de",
+                          "key": "imageHash",
+                          "value": "<string>",
+                          "description": "(Required) The image's seven-character hash (e.g. \"AbCdEfG\")."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0b47a42c-60fe-41f6-bd0a-7005838ce4f7",
+                      "name": "Image Deleted.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/image/:imageHash",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "image",
+                            ":imageHash"
+                          ],
+                          "variable": [
+                            {
+                              "key": "imageHash"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:06:40.000Z",
+                      "updatedAt": "2026-10-21T20:06:40.000Z",
+                      "uid": "35240-0b47a42c-60fe-41f6-bd0a-7005838ce4f7"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:06:40.000Z",
+                  "updatedAt": "2026-10-21T20:06:40.000Z",
+                  "uid": "35240-3444b074-447c-4629-a615-f4f2c21f8550"
+                },
+                {
+                  "name": "Update Image Information",
+                  "id": "1183bb4b-515c-4e87-bc13-930cc9d4e4ae",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "key": "title",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/3/image/:imageHash",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "image",
+                        ":imageHash"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e2887187-5af4-465a-82c0-270ab42084cc",
+                          "key": "imageHash",
+                          "value": "<string>",
+                          "description": "(Required) The image's seven-character hash (e.g. \"AbCdEfG\")."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8011161c-d178-4af8-95c8-6ed1d983714a",
+                      "name": "Image Updated.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "key": "title",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/3/image/:imageHash",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "image",
+                            ":imageHash"
+                          ],
+                          "variable": [
+                            {
+                              "key": "imageHash"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:06:40.000Z",
+                      "updatedAt": "2026-10-21T20:06:40.000Z",
+                      "uid": "35240-8011161c-d178-4af8-95c8-6ed1d983714a"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:06:40.000Z",
+                  "updatedAt": "2026-10-21T20:06:40.000Z",
+                  "uid": "35240-1183bb4b-515c-4e87-bc13-930cc9d4e4ae"
+                }
+              ],
+              "id": "784ee81a-d6f6-4a8a-9588-b584848187e3",
+              "createdAt": "2026-10-21T20:06:40.000Z",
+              "updatedAt": "2026-10-21T20:06:40.000Z",
+              "uid": "35240-784ee81a-d6f6-4a8a-9588-b584848187e3"
+            },
+            {
+              "name": "Upload Image",
+              "id": "446c75b0-bf3b-4ee8-9d78-7ab08e7d31a6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "formdata",
                   "formdata": [
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
                       "key": "image",
-                      "value": "<binary>",
-                      "type": "text"
+                      "type": "file",
+                      "value": null
                     },
                     {
-                      "description": {
-                        "content": " (This can only be one of file,base64,url)",
-                        "type": "text/plain"
-                      },
+                      "description": " (This can only be one of file,base64,url)",
                       "key": "type",
-                      "value": "<string>",
+                      "value": "base64",
                       "type": "text"
                     },
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
                       "key": "title",
                       "value": "<string>",
                       "type": "text"
                     },
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
                       "key": "description",
                       "value": "<string>",
                       "type": "text"
                     },
                     {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
                       "key": "album",
                       "value": "<string>",
                       "type": "text"
                     }
                   ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {},\n  \"success\": true,\n  \"status\": 6269\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "08969a28-8e77-46a5-9aa4-d269a5d34d7c",
-          "name": "Get Image",
-          "request": {
-            "name": "Get Image",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "image",
-                ":imageHash"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "imageHash",
-                  "description": "(Required) The image's seven-character hash (e.g. \"AbCdEfG\")."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "0d13aa73-c5b0-466c-9102-431676d07cca",
-              "name": "Image Metadata.",
-              "originalRequest": {
+                },
                 "url": {
-                  "path": [
-                    "3",
-                    "image",
-                    ":imageHash"
-                  ],
+                  "raw": "{{baseUrl}}/3/image",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "imageHash",
-                      "description": "(Required) The image's seven-character hash (e.g. \"AbCdEfG\")."
-                    }
+                  "path": [
+                    "3",
+                    "image"
                   ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                "description": "Upload an image (binary, base64, or URL)."
+              },
+              "response": [
+                {
+                  "id": "7818ca6d-7a55-41b4-964f-f3bb67ff313f",
+                  "name": "Image Uploaded.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "key": "image",
+                          "type": "file"
+                        },
+                        {
+                          "description": " (This can only be one of file,base64,url)",
+                          "key": "type",
+                          "value": "base64",
+                          "type": "text"
+                        },
+                        {
+                          "key": "title",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "album",
+                          "value": "<string>",
+                          "type": "text"
+                        }
+                      ]
                     },
-                    "key": "Authorization",
-                    "value": "<API Key>"
+                    "url": {
+                      "raw": "{{baseUrl}}/3/image",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "image"
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"description\": \"Operation-specific payload.\"\n  },\n  \"success\": \"<boolean>\",\n  \"status\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-21T20:06:40.000Z",
+                  "updatedAt": "2026-10-21T20:06:40.000Z",
+                  "uid": "35240-7818ca6d-7a55-41b4-964f-f3bb67ff313f"
                 }
               ],
-              "body": "{\n  \"data\": {},\n  \"success\": true,\n  \"status\": 6269\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:06:40.000Z",
+              "updatedAt": "2026-10-21T20:06:40.000Z",
+              "uid": "35240-446c75b0-bf3b-4ee8-9d78-7ab08e7d31a6"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "465ab4b4-9672-44c9-ae3f-25d4b2af005f",
-          "name": "Delete Image",
-          "request": {
-            "name": "Delete Image",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "image",
-                ":imageHash"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "imageHash",
-                  "description": "(Required) The image's seven-character hash (e.g. \"AbCdEfG\")."
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "2c73fb43-dd02-45ea-899f-8a429d67f73f",
-              "name": "Image Deleted.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "image",
-                    ":imageHash"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "imageHash",
-                      "description": "(Required) The image's seven-character hash (e.g. \"AbCdEfG\")."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "65eec8dc-8fd1-4a6f-af61-97e35da1e438",
-          "name": "Update Image Information",
-          "request": {
-            "name": "Update Image Information",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "image",
-                ":imageHash"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "imageHash",
-                  "description": "(Required) The image's seven-character hash (e.g. \"AbCdEfG\")."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "disabled": false,
-                  "key": "title",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "description",
-                  "value": "<string>"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "2990ec9b-879a-4fa4-aabc-693388385110",
-              "name": "Image Updated.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "image",
-                    ":imageHash"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "imageHash",
-                      "description": "(Required) The image's seven-character hash (e.g. \"AbCdEfG\")."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "disabled": false,
-                      "key": "title",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "key": "description",
-                      "value": "<string>"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f396a99d-5a6e-48a4-a0c7-7bf08a13464b",
-          "name": "Favorite Image",
-          "request": {
-            "name": "Favorite Image",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "image",
-                ":imageHash",
-                "favorite"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "imageHash",
-                  "description": "(Required) The image's seven-character hash (e.g. \"AbCdEfG\")."
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "429dceff-41b5-4d17-9fe9-86001e3c94ad",
-              "name": "Favorite Toggled.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "image",
-                    ":imageHash",
-                    "favorite"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "imageHash",
-                      "description": "(Required) The image's seven-character hash (e.g. \"AbCdEfG\")."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "506d275b-cf50-4eae-a559-fdd101614145",
+          "createdAt": "2026-10-21T20:06:40.000Z",
+          "updatedAt": "2026-10-21T20:06:40.000Z",
+          "uid": "35240-506d275b-cf50-4eae-a559-fdd101614145"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.imgur.com",
-      "key": "baseUrl"
+      "id": "731c0749-8010-403f-a807-6651e916ba60",
+      "createdAt": "2026-10-21T20:06:40.000Z",
+      "updatedAt": "2026-10-21T20:06:40.000Z",
+      "uid": "35240-731c0749-8010-403f-a807-6651e916ba60"
     }
   ],
   "auth": {
@@ -579,25 +547,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "d088f7ca-80c8-4b67-ad6a-619135fbf639",
-    "name": "Imgur Image API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.imgur.com"
     }
-  }
+  ]
 }

@@ -1,729 +1,767 @@
 {
+  "info": {
+    "_postman_id": "a41d8334-9e84-463d-9ab2-6c795f753dde",
+    "name": "Imgur Gallery API",
+    "description": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform \u2014 uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:31.000Z",
+    "updatedAt": "2026-10-21T20:06:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a41d8334-9e84-463d-9ab2-6c795f753dde"
+  },
   "item": [
     {
-      "id": "4f08535c-2986-4e19-88a5-cb6c41f6797b",
-      "name": "Gallery",
-      "description": {
-        "content": "Public gallery listing, voting, sharing, and reporting.",
-        "type": "text/plain"
-      },
+      "name": "3",
       "item": [
         {
-          "id": "b393a057-e7f4-4d3b-9f98-933a1414cf1a",
-          "name": "Get Gallery",
-          "request": {
-            "name": "Get Gallery",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "gallery",
-                ":section",
-                ":sort",
-                ":window",
-                ":page"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "section",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "sort",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "window",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "0",
-                  "key": "page",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "gallery",
+          "item": [
             {
-              "id": "7b54895d-890c-4f0f-b0f9-08c0ebd45c74",
-              "name": "Gallery Items.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "gallery",
-                    ":section",
-                    ":sort",
-                    ":window",
-                    ":page"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "section",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "sort",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "window",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "0",
-                      "key": "page",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{section}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "99af7c6e-f2c3-4348-9a89-122d4840990f",
-          "name": "Search Gallery",
-          "request": {
-            "name": "Search Gallery",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "gallery",
-                "search"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "q",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>"
-                }
-              ],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5d7b7c53-781e-4a42-aea0-d3021eac6d7b",
-              "name": "Search Results.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "gallery",
-                    "search"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "name": "{sort}",
+                  "item": [
                     {
-                      "key": "q",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
+                      "name": "{window}",
+                      "item": [
+                        {
+                          "name": "{page}",
+                          "item": [
+                            {
+                              "name": "Get Gallery",
+                              "id": "6616b7ae-4df5-4496-ae2e-d5225bea7283",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/3/gallery/:section/:sort/:window/:page",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "3",
+                                    "gallery",
+                                    ":section",
+                                    ":sort",
+                                    ":window",
+                                    ":page"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "4e423cd0-6338-4e55-b546-4b45667b346a",
+                                      "key": "section",
+                                      "value": "hot",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "20dd3797-cc54-4d16-9ae2-0d610d3eab6d",
+                                      "key": "sort",
+                                      "value": "time",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "7ec93739-8c6e-4379-a2e7-6d39ef3afbf4",
+                                      "key": "window",
+                                      "value": "year",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "eb81bad6-7605-4d62-a3ec-ec2c43828e23",
+                                      "key": "page",
+                                      "value": "0",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "6e1f4f84-cf93-4d20-85b6-04b0b9f43dfe",
+                                  "name": "Gallery Items.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/3/gallery/:section/:sort/:window/:page",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "3",
+                                        "gallery",
+                                        ":section",
+                                        ":sort",
+                                        ":window",
+                                        ":page"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "section"
+                                        },
+                                        {
+                                          "key": "sort"
+                                        },
+                                        {
+                                          "key": "window"
+                                        },
+                                        {
+                                          "key": "page"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-21T20:06:31.000Z",
+                                  "updatedAt": "2026-10-21T20:06:31.000Z",
+                                  "uid": "35240-6e1f4f84-cf93-4d20-85b6-04b0b9f43dfe"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T20:06:31.000Z",
+                              "updatedAt": "2026-10-21T20:06:31.000Z",
+                              "uid": "35240-6616b7ae-4df5-4496-ae2e-d5225bea7283"
+                            }
+                          ],
+                          "id": "44d356fe-afb9-4034-b05c-fbbc75727284",
+                          "createdAt": "2026-10-21T20:06:31.000Z",
+                          "updatedAt": "2026-10-21T20:06:31.000Z",
+                          "uid": "35240-44d356fe-afb9-4034-b05c-fbbc75727284"
+                        }
+                      ],
+                      "id": "a028b842-066a-4193-a7a2-05b7462204e4",
+                      "createdAt": "2026-10-21T20:06:31.000Z",
+                      "updatedAt": "2026-10-21T20:06:31.000Z",
+                      "uid": "35240-a028b842-066a-4193-a7a2-05b7462204e4"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "9cab88d4-3f82-4b6b-97cf-9e95a68103ef",
+                  "createdAt": "2026-10-21T20:06:31.000Z",
+                  "updatedAt": "2026-10-21T20:06:31.000Z",
+                  "uid": "35240-9cab88d4-3f82-4b6b-97cf-9e95a68103ef"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9bc73a66-98c7-40cd-8d03-0b8cc6a2a198",
-          "name": "Get Gallery Image",
-          "request": {
-            "name": "Get Gallery Image",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "gallery",
-                "image",
-                ":galleryHash"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "galleryHash",
-                  "description": "(Required) "
-                }
-              ]
+              "id": "95980fb1-564d-4eea-9767-1ebdcf8d1440",
+              "createdAt": "2026-10-21T20:06:31.000Z",
+              "updatedAt": "2026-10-21T20:06:31.000Z",
+              "uid": "35240-95980fb1-564d-4eea-9767-1ebdcf8d1440"
             },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
             {
-              "id": "ce7709f5-030f-4a6e-9ac3-df24446cb9a0",
-              "name": "Gallery Image.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "gallery",
-                    "image",
-                    ":galleryHash"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "galleryHash",
-                      "description": "(Required) "
+              "name": "search",
+              "item": [
+                {
+                  "name": "Search Gallery",
+                  "id": "54169552-da1a-4fd8-9606-1e7f81ec010c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/3/gallery/search?q=<string>&sort=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "gallery",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "sort",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f8970d17-676e-46b2-8e5c-5cb4638e703d",
-          "name": "Get Gallery Album",
-          "request": {
-            "name": "Get Gallery Album",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "gallery",
-                "album",
-                ":galleryHash"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "galleryHash",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "974a655f-797b-4445-9ff0-9e883e125d5b",
-              "name": "Gallery Album.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "gallery",
-                    "album",
-                    ":galleryHash"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  },
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "galleryHash",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "264163f2-0b37-4330-b6b3-e112def1a172",
-          "name": "Vote On Gallery Item",
-          "request": {
-            "name": "Vote On Gallery Item",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "gallery",
-                ":galleryHash",
-                "vote",
-                ":vote"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "galleryHash",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "vote",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "bbda972d-4877-4747-b972-07e8e2c0d74f",
-              "name": "Vote Recorded.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "gallery",
-                    ":galleryHash",
-                    "vote",
-                    ":vote"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "galleryHash",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "vote",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6c88bed9-7d1b-4c72-bf6b-bd01c6f00671",
-          "name": "Report Gallery Item",
-          "request": {
-            "name": "Report Gallery Item",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "gallery",
-                ":galleryHash",
-                "report"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "galleryHash",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "35468350-fdaa-4ec3-aeb1-2e9080957ec9",
-              "name": "Report Submitted.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "gallery",
-                    ":galleryHash",
-                    "report"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "galleryHash",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2e392508-57bf-40ab-84b1-ec0701e2faae",
-          "name": "Submit Image To Gallery",
-          "request": {
-            "name": "Submit Image To Gallery",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "gallery",
-                "image"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "disabled": false,
-                  "key": "title",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "topic",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "terms",
-                  "value": "<integer>"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "8721bc13-71a0-4874-bd19-f05c76ef0531",
-              "name": "Image Submitted.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "gallery",
-                    "image"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
+                      "id": "97d6a902-1a9b-42aa-88c4-8162286f3af5",
+                      "name": "Search Results.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/gallery/search?q=<string>&sort=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "gallery",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "q",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "sort",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
                       },
-                      "key": "title",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "key": "topic",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "key": "terms",
-                      "value": "<integer>"
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:06:31.000Z",
+                      "updatedAt": "2026-10-21T20:06:31.000Z",
+                      "uid": "35240-97d6a902-1a9b-42aa-88c4-8162286f3af5"
                     }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  ],
+                  "createdAt": "2026-10-21T20:06:31.000Z",
+                  "updatedAt": "2026-10-21T20:06:31.000Z",
+                  "uid": "35240-54169552-da1a-4fd8-9606-1e7f81ec010c"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "468535eb-0794-4ebc-8b8c-460bb0526227",
+              "createdAt": "2026-10-21T20:06:31.000Z",
+              "updatedAt": "2026-10-21T20:06:31.000Z",
+              "uid": "35240-468535eb-0794-4ebc-8b8c-460bb0526227"
+            },
+            {
+              "name": "image",
+              "item": [
+                {
+                  "name": "{galleryHash}",
+                  "item": [
+                    {
+                      "name": "Get Gallery Image",
+                      "id": "8a4ef618-2ed3-496d-9b07-e3b71cde4057",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/gallery/image/:galleryHash",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "gallery",
+                            "image",
+                            ":galleryHash"
+                          ],
+                          "variable": [
+                            {
+                              "id": "162fa981-2f92-44da-bd3d-0c559b109609",
+                              "key": "galleryHash",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "eabd4718-a4e9-40e8-bfab-4c1c272329a2",
+                          "name": "Gallery Image.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/gallery/image/:galleryHash",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "gallery",
+                                "image",
+                                ":galleryHash"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "galleryHash"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:31.000Z",
+                          "updatedAt": "2026-10-21T20:06:31.000Z",
+                          "uid": "35240-eabd4718-a4e9-40e8-bfab-4c1c272329a2"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:31.000Z",
+                      "updatedAt": "2026-10-21T20:06:31.000Z",
+                      "uid": "35240-8a4ef618-2ed3-496d-9b07-e3b71cde4057"
+                    }
+                  ],
+                  "id": "1822c376-16c4-4706-94f2-b430a84652a8",
+                  "createdAt": "2026-10-21T20:06:31.000Z",
+                  "updatedAt": "2026-10-21T20:06:31.000Z",
+                  "uid": "35240-1822c376-16c4-4706-94f2-b430a84652a8"
+                },
+                {
+                  "name": "Submit Image To Gallery",
+                  "id": "0956a3ed-3f0e-4401-aab4-316cd727bdb0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "title",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "topic",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "terms",
+                          "value": "1"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/3/gallery/image",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "gallery",
+                        "image"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "7fc5c825-1c4e-4544-9e09-834cdac785c2",
+                      "name": "Image Submitted.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) ",
+                              "key": "title",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "topic",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "terms",
+                              "value": "1"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/3/gallery/image",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "gallery",
+                            "image"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:06:31.000Z",
+                      "updatedAt": "2026-10-21T20:06:31.000Z",
+                      "uid": "35240-7fc5c825-1c4e-4544-9e09-834cdac785c2"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:06:31.000Z",
+                  "updatedAt": "2026-10-21T20:06:31.000Z",
+                  "uid": "35240-0956a3ed-3f0e-4401-aab4-316cd727bdb0"
+                }
+              ],
+              "id": "0694a989-f0a2-48f2-b6d0-3b135fad9212",
+              "createdAt": "2026-10-21T20:06:31.000Z",
+              "updatedAt": "2026-10-21T20:06:31.000Z",
+              "uid": "35240-0694a989-f0a2-48f2-b6d0-3b135fad9212"
+            },
+            {
+              "name": "album",
+              "item": [
+                {
+                  "name": "{galleryHash}",
+                  "item": [
+                    {
+                      "name": "Get Gallery Album",
+                      "id": "a2bd2b68-4f8f-4c4f-b8c5-2f61ba37d79d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/gallery/album/:galleryHash",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "gallery",
+                            "album",
+                            ":galleryHash"
+                          ],
+                          "variable": [
+                            {
+                              "id": "eccebc79-b741-4f56-9e66-442e92b67f85",
+                              "key": "galleryHash",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "c71e5564-17b2-4605-aa9e-581c73886c60",
+                          "name": "Gallery Album.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/gallery/album/:galleryHash",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "gallery",
+                                "album",
+                                ":galleryHash"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "galleryHash"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:31.000Z",
+                          "updatedAt": "2026-10-21T20:06:31.000Z",
+                          "uid": "35240-c71e5564-17b2-4605-aa9e-581c73886c60"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:31.000Z",
+                      "updatedAt": "2026-10-21T20:06:31.000Z",
+                      "uid": "35240-a2bd2b68-4f8f-4c4f-b8c5-2f61ba37d79d"
+                    }
+                  ],
+                  "id": "729be9fa-923c-4b4d-a0d6-9dc7da54330f",
+                  "createdAt": "2026-10-21T20:06:31.000Z",
+                  "updatedAt": "2026-10-21T20:06:31.000Z",
+                  "uid": "35240-729be9fa-923c-4b4d-a0d6-9dc7da54330f"
+                }
+              ],
+              "id": "253addce-e608-4e94-b36b-784d49dca25c",
+              "createdAt": "2026-10-21T20:06:31.000Z",
+              "updatedAt": "2026-10-21T20:06:31.000Z",
+              "uid": "35240-253addce-e608-4e94-b36b-784d49dca25c"
+            },
+            {
+              "name": "{galleryHash}",
+              "item": [
+                {
+                  "name": "vote",
+                  "item": [
+                    {
+                      "name": "{vote}",
+                      "item": [
+                        {
+                          "name": "Vote On Gallery Item",
+                          "id": "15dc5c2e-aa7a-4fea-9fcd-3a528667b6ba",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/gallery/:galleryHash/vote/:vote",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "gallery",
+                                ":galleryHash",
+                                "vote",
+                                ":vote"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f904936c-8780-40fc-92be-12cf41692472",
+                                  "key": "galleryHash",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "d44c3266-5ecd-4aea-a509-9726680477d9",
+                                  "key": "vote",
+                                  "value": "up",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "ec7668b1-2190-4acd-a6fa-834718701490",
+                              "name": "Vote Recorded.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/3/gallery/:galleryHash/vote/:vote",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "3",
+                                    "gallery",
+                                    ":galleryHash",
+                                    "vote",
+                                    ":vote"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "galleryHash"
+                                    },
+                                    {
+                                      "key": "vote"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:06:31.000Z",
+                              "updatedAt": "2026-10-21T20:06:31.000Z",
+                              "uid": "35240-ec7668b1-2190-4acd-a6fa-834718701490"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:31.000Z",
+                          "updatedAt": "2026-10-21T20:06:31.000Z",
+                          "uid": "35240-15dc5c2e-aa7a-4fea-9fcd-3a528667b6ba"
+                        }
+                      ],
+                      "id": "8dfedb39-c90e-4d2e-ba33-30133d98156f",
+                      "createdAt": "2026-10-21T20:06:31.000Z",
+                      "updatedAt": "2026-10-21T20:06:31.000Z",
+                      "uid": "35240-8dfedb39-c90e-4d2e-ba33-30133d98156f"
+                    }
+                  ],
+                  "id": "277ede7d-c282-42e6-b711-c95c8cd805a0",
+                  "createdAt": "2026-10-21T20:06:31.000Z",
+                  "updatedAt": "2026-10-21T20:06:31.000Z",
+                  "uid": "35240-277ede7d-c282-42e6-b711-c95c8cd805a0"
+                },
+                {
+                  "name": "report",
+                  "item": [
+                    {
+                      "name": "Report Gallery Item",
+                      "id": "b536bdb9-26fe-4134-83a5-fb7df632345e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/gallery/:galleryHash/report",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "gallery",
+                            ":galleryHash",
+                            "report"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8c24b359-1c68-4d7e-b820-b710588dcdf1",
+                              "key": "galleryHash",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "f4d606c0-783b-455c-bdb1-207b30f09838",
+                          "name": "Report Submitted.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/gallery/:galleryHash/report",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "gallery",
+                                ":galleryHash",
+                                "report"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "galleryHash"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:31.000Z",
+                          "updatedAt": "2026-10-21T20:06:31.000Z",
+                          "uid": "35240-f4d606c0-783b-455c-bdb1-207b30f09838"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:31.000Z",
+                      "updatedAt": "2026-10-21T20:06:31.000Z",
+                      "uid": "35240-b536bdb9-26fe-4134-83a5-fb7df632345e"
+                    }
+                  ],
+                  "id": "84ea5eec-095c-4543-8b0f-d5efa5f2509e",
+                  "createdAt": "2026-10-21T20:06:31.000Z",
+                  "updatedAt": "2026-10-21T20:06:31.000Z",
+                  "uid": "35240-84ea5eec-095c-4543-8b0f-d5efa5f2509e"
+                }
+              ],
+              "id": "a9775622-2349-48b0-9442-ac6566469a61",
+              "createdAt": "2026-10-21T20:06:31.000Z",
+              "updatedAt": "2026-10-21T20:06:31.000Z",
+              "uid": "35240-a9775622-2349-48b0-9442-ac6566469a61"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "200d092e-b64d-4e26-8579-3c9ce8898094",
+          "createdAt": "2026-10-21T20:06:31.000Z",
+          "updatedAt": "2026-10-21T20:06:31.000Z",
+          "uid": "35240-200d092e-b64d-4e26-8579-3c9ce8898094"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.imgur.com",
-      "key": "baseUrl"
+      "id": "da6a6e7e-3e06-4a19-8d76-4aba8cf79b44",
+      "createdAt": "2026-10-21T20:06:31.000Z",
+      "updatedAt": "2026-10-21T20:06:31.000Z",
+      "uid": "35240-da6a6e7e-3e06-4a19-8d76-4aba8cf79b44"
     }
   ],
   "auth": {
@@ -731,25 +769,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "44a9dff4-f524-4ddf-bcb9-fa8ef93b16e6",
-    "name": "Imgur Gallery API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.imgur.com"
     }
-  }
+  ]
 }

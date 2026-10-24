@@ -1,550 +1,529 @@
 {
+  "info": {
+    "_postman_id": "d80ec633-2ff1-4289-9d37-0627a742a83e",
+    "name": "Imgur Comment API",
+    "description": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform \u2014 uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:25.000Z",
+    "updatedAt": "2026-10-21T20:06:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d80ec633-2ff1-4289-9d37-0627a742a83e"
+  },
   "item": [
     {
-      "id": "ed5bba70-41f0-49fb-9323-b0e5f4f31d52",
-      "name": "Comment",
-      "description": {
-        "content": "Comments on gallery items.",
-        "type": "text/plain"
-      },
+      "name": "3",
       "item": [
         {
-          "id": "ce067a45-c389-4dcd-a572-947fad986d69",
-          "name": "Get Comment",
-          "request": {
-            "name": "Get Comment",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "comment",
-                ":commentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "commentId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "comment",
+          "item": [
             {
-              "id": "655c1bb0-12cf-4e5b-9108-bbe6af34166c",
-              "name": "Comment Details.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "comment",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "{commentId}",
+              "item": [
+                {
+                  "name": "reply",
+                  "item": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "commentId",
-                      "description": "(Required) "
+                      "name": "Reply To Comment",
+                      "id": "ed0f5c98-f8ee-4895-8349-f381234177b3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) ",
+                              "key": "image_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "comment",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/3/comment/:commentId/reply",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "comment",
+                            ":commentId",
+                            "reply"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0e43b9c0-f7ed-4b13-8275-97ea6fcf43cb",
+                              "key": "commentId",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "d1d918c6-1cdd-47f9-b148-7562e6e23bb9",
+                          "name": "Reply Posted.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "image_id",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "comment",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/3/comment/:commentId/reply",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "comment",
+                                ":commentId",
+                                "reply"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "commentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:26.000Z",
+                          "updatedAt": "2026-10-21T20:06:26.000Z",
+                          "uid": "35240-d1d918c6-1cdd-47f9-b148-7562e6e23bb9"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:26.000Z",
+                      "updatedAt": "2026-10-21T20:06:26.000Z",
+                      "uid": "35240-ed0f5c98-f8ee-4895-8349-f381234177b3"
                     }
-                  ]
+                  ],
+                  "id": "b3a0473b-33b7-4b27-9d1d-14a7a40d84da",
+                  "createdAt": "2026-10-21T20:06:26.000Z",
+                  "updatedAt": "2026-10-21T20:06:26.000Z",
+                  "uid": "35240-b3a0473b-33b7-4b27-9d1d-14a7a40d84da"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7da7e623-26e9-4c06-a882-48812cd0313f",
-          "name": "Delete Comment",
-          "request": {
-            "name": "Delete Comment",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "comment",
-                ":commentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "commentId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "08e7251b-5796-414e-976a-aaaff71b1e6b",
-              "name": "Comment Deleted.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "comment",
-                    ":commentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "name": "vote",
+                  "item": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "commentId",
-                      "description": "(Required) "
+                      "name": "{vote}",
+                      "item": [
+                        {
+                          "name": "Vote On Comment",
+                          "id": "aae49980-179c-4947-8346-b3e186aff71f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/comment/:commentId/vote/:vote",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "comment",
+                                ":commentId",
+                                "vote",
+                                ":vote"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "105b01ce-1f67-44fa-9c4b-9679b76f7d75",
+                                  "key": "commentId",
+                                  "value": "<integer>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "5860987e-ee85-427f-92bb-235977e054f6",
+                                  "key": "vote",
+                                  "value": "down",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "4ad2c49f-8823-4125-a73d-964681d7de56",
+                              "name": "Vote Recorded.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/3/comment/:commentId/vote/:vote",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "3",
+                                    "comment",
+                                    ":commentId",
+                                    "vote",
+                                    ":vote"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "commentId"
+                                    },
+                                    {
+                                      "key": "vote"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:06:26.000Z",
+                              "updatedAt": "2026-10-21T20:06:26.000Z",
+                              "uid": "35240-4ad2c49f-8823-4125-a73d-964681d7de56"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:26.000Z",
+                          "updatedAt": "2026-10-21T20:06:26.000Z",
+                          "uid": "35240-aae49980-179c-4947-8346-b3e186aff71f"
+                        }
+                      ],
+                      "id": "12a66df7-cae2-4156-ad17-90a672946fab",
+                      "createdAt": "2026-10-21T20:06:26.000Z",
+                      "updatedAt": "2026-10-21T20:06:26.000Z",
+                      "uid": "35240-12a66df7-cae2-4156-ad17-90a672946fab"
                     }
-                  ]
+                  ],
+                  "id": "aad955b3-5db3-4f5d-a865-d898b4733949",
+                  "createdAt": "2026-10-21T20:06:26.000Z",
+                  "updatedAt": "2026-10-21T20:06:26.000Z",
+                  "uid": "35240-aad955b3-5db3-4f5d-a865-d898b4733949"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "Get Comment",
+                  "id": "2d7f6fe9-1a00-49e7-87ad-55b5f7d711ad",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/3/comment/:commentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "comment",
+                        ":commentId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c7b3d11c-8bb9-4f83-b19c-ab9ba8419476",
+                          "key": "commentId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "65b6d696-4af5-404c-8945-db4c33520496",
+                      "name": "Comment Details.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/comment/:commentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "comment",
+                            ":commentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:06:26.000Z",
+                      "updatedAt": "2026-10-21T20:06:26.000Z",
+                      "uid": "35240-65b6d696-4af5-404c-8945-db4c33520496"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:06:26.000Z",
+                  "updatedAt": "2026-10-21T20:06:26.000Z",
+                  "uid": "35240-2d7f6fe9-1a00-49e7-87ad-55b5f7d711ad"
+                },
+                {
+                  "name": "Delete Comment",
+                  "id": "2d3d8feb-b4ba-44b6-a81f-c9a1c9fc23c1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/3/comment/:commentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "comment",
+                        ":commentId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "328ffad7-7e52-4040-93e5-5faf98799d07",
+                          "key": "commentId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "6eb81359-f08d-45c2-9f5a-2c3fd51bccd6",
+                      "name": "Comment Deleted.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/comment/:commentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "comment",
+                            ":commentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "commentId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:06:26.000Z",
+                      "updatedAt": "2026-10-21T20:06:26.000Z",
+                      "uid": "35240-6eb81359-f08d-45c2-9f5a-2c3fd51bccd6"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:06:26.000Z",
+                  "updatedAt": "2026-10-21T20:06:26.000Z",
+                  "uid": "35240-2d3d8feb-b4ba-44b6-a81f-c9a1c9fc23c1"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4d14c15c-eaec-433a-9881-fbb01ceb850d",
-          "name": "Create Comment",
-          "request": {
-            "name": "Create Comment",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "comment"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
+              "id": "47801117-09a9-486e-9df7-ca3833fea29f",
+              "createdAt": "2026-10-21T20:06:26.000Z",
+              "updatedAt": "2026-10-21T20:06:26.000Z",
+              "uid": "35240-47801117-09a9-486e-9df7-ca3833fea29f"
             },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "disabled": false,
-                  "key": "image_id",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "comment",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "parent_id",
-                  "value": "<string>"
-                }
-              ]
-            }
-          },
-          "response": [
             {
-              "id": "19b47dd5-d0bd-47a2-99e7-fc64ec42ce0c",
-              "name": "Comment Created.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "comment"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
+              "name": "Create Comment",
+              "id": "2814fc87-95de-4d77-955f-e51944347366",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
                 "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
                 "body": {
                   "mode": "urlencoded",
                   "urlencoded": [
                     {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
+                      "description": "(Required) ",
                       "key": "image_id",
                       "value": "<string>"
                     },
                     {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
+                      "description": "(Required) ",
                       "key": "comment",
                       "value": "<string>"
                     },
                     {
-                      "disabled": false,
                       "key": "parent_id",
                       "value": "<string>"
                     }
                   ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7c4bc908-94b0-4fab-92e2-e1cc0c26eb22",
-          "name": "Reply To Comment",
-          "request": {
-            "name": "Reply To Comment",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "comment",
-                ":commentId",
-                "reply"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "commentId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "disabled": false,
-                  "key": "image_id",
-                  "value": "<string>",
-                  "description": "(Required) "
                 },
-                {
-                  "disabled": false,
-                  "key": "comment",
-                  "value": "<string>",
-                  "description": "(Required) "
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "12dc8046-69b1-440a-bfd7-8d8c48f3ebd1",
-              "name": "Reply Posted.",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "3",
-                    "comment",
-                    ":commentId",
-                    "reply"
-                  ],
+                  "raw": "{{baseUrl}}/3/comment",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "commentId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "image_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
-                      "key": "comment",
-                      "value": "<string>"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "de4931ef-f526-4752-9841-9b078cf89157",
-          "name": "Vote On Comment",
-          "request": {
-            "name": "Vote On Comment",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "comment",
-                ":commentId",
-                "vote",
-                ":vote"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "commentId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "vote",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "fe7978f2-69e6-4f5d-bce7-da86bb8fdaee",
-              "name": "Vote Recorded.",
-              "originalRequest": {
-                "url": {
                   "path": [
                     "3",
-                    "comment",
-                    ":commentId",
-                    "vote",
-                    ":vote"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "commentId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "vote",
-                      "description": "(Required) "
-                    }
+                    "comment"
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "79062daf-20d6-4f6b-943f-3130886b7877",
+                  "name": "Comment Created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "comment",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "parent_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/3/comment",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "comment"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:06:26.000Z",
+                  "updatedAt": "2026-10-21T20:06:26.000Z",
+                  "uid": "35240-79062daf-20d6-4f6b-943f-3130886b7877"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T20:06:26.000Z",
+              "updatedAt": "2026-10-21T20:06:26.000Z",
+              "uid": "35240-2814fc87-95de-4d77-955f-e51944347366"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "80bd2894-4f7b-494f-876b-7cb961902c17",
+          "createdAt": "2026-10-21T20:06:26.000Z",
+          "updatedAt": "2026-10-21T20:06:26.000Z",
+          "uid": "35240-80bd2894-4f7b-494f-876b-7cb961902c17"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.imgur.com",
-      "key": "baseUrl"
+      "id": "b325d364-4461-464e-8c06-8adfaf2ca2c6",
+      "createdAt": "2026-10-21T20:06:26.000Z",
+      "updatedAt": "2026-10-21T20:06:26.000Z",
+      "uid": "35240-b325d364-4461-464e-8c06-8adfaf2ca2c6"
     }
   ],
   "auth": {
@@ -552,25 +531,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "0dbf5106-89b6-465d-b436-f7d078eea962",
-    "name": "Imgur Comment API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.imgur.com"
     }
-  }
+  ]
 }

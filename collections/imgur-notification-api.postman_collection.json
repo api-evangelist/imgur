@@ -1,264 +1,282 @@
 {
+  "info": {
+    "_postman_id": "7462918d-17e5-450d-a6bc-bb23bf1b9fc9",
+    "name": "Imgur Notification API",
+    "description": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform \u2014 uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:56.000Z",
+    "updatedAt": "2026-10-21T20:06:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7462918d-17e5-450d-a6bc-bb23bf1b9fc9"
+  },
   "item": [
     {
-      "id": "ce4cacb2-2ff3-43a8-95dc-6ee3bdf555b7",
-      "name": "Notification",
-      "description": {
-        "content": "User notification retrieval and dismissal.",
-        "type": "text/plain"
-      },
+      "name": "3",
       "item": [
         {
-          "id": "aafea15f-ed0d-4ccc-93cf-ddb4ce9cabc7",
-          "name": "Get Account Notifications",
-          "request": {
-            "name": "Get Account Notifications",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "account",
-                "me",
-                "notifications"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "account",
+          "item": [
             {
-              "id": "ecf51f10-2e8d-4b4d-9693-e0c36f323e37",
-              "name": "Notification List.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "account",
-                    "me",
-                    "notifications"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "me",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "notifications",
+                  "item": [
+                    {
+                      "name": "Get Account Notifications",
+                      "id": "d2559c4d-3988-49df-989c-2f722086aee6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/account/me/notifications",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "account",
+                            "me",
+                            "notifications"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "a00463c5-61c8-4be9-9353-5fe86aadb1dd",
+                          "name": "Notification List.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/account/me/notifications",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "account",
+                                "me",
+                                "notifications"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:57.000Z",
+                          "updatedAt": "2026-10-21T20:06:57.000Z",
+                          "uid": "35240-a00463c5-61c8-4be9-9353-5fe86aadb1dd"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:57.000Z",
+                      "updatedAt": "2026-10-21T20:06:57.000Z",
+                      "uid": "35240-d2559c4d-3988-49df-989c-2f722086aee6"
+                    }
+                  ],
+                  "id": "a7ab9715-168e-4ea2-88bb-f1fc88c94c77",
+                  "createdAt": "2026-10-21T20:06:57.000Z",
+                  "updatedAt": "2026-10-21T20:06:57.000Z",
+                  "uid": "35240-a7ab9715-168e-4ea2-88bb-f1fc88c94c77"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "f540921e-0d15-4449-98a9-5132516dbbaf",
+              "createdAt": "2026-10-21T20:06:57.000Z",
+              "updatedAt": "2026-10-21T20:06:57.000Z",
+              "uid": "35240-f540921e-0d15-4449-98a9-5132516dbbaf"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "b212f486-7667-424a-b390-df1fcb0fb370",
+          "createdAt": "2026-10-21T20:06:57.000Z",
+          "updatedAt": "2026-10-21T20:06:57.000Z",
+          "uid": "35240-b212f486-7667-424a-b390-df1fcb0fb370"
         },
         {
-          "id": "ce794a08-6a7a-4486-b892-c9a56c84028b",
-          "name": "Get Notification",
-          "request": {
-            "name": "Get Notification",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "notification",
-                ":notificationId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "notificationId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "notification",
+          "item": [
             {
-              "id": "f36aaf2c-eafe-470c-8fcf-d5738f518a53",
-              "name": "Notification Details.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "notification",
-                    ":notificationId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "notificationId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{notificationId}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "Get Notification",
+                  "id": "da3e7899-b611-4615-a97e-6867beda2a8a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/3/notification/:notificationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "notification",
+                        ":notificationId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7497226d-d60b-479e-9e34-1525189f7751",
+                          "key": "notificationId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0e18cf3c-c4ce-4dd3-a0dc-e95c1b4bcacf",
+                      "name": "Notification Details.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/notification/:notificationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "notification",
+                            ":notificationId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "notificationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:06:57.000Z",
+                      "updatedAt": "2026-10-21T20:06:57.000Z",
+                      "uid": "35240-0e18cf3c-c4ce-4dd3-a0dc-e95c1b4bcacf"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:06:57.000Z",
+                  "updatedAt": "2026-10-21T20:06:57.000Z",
+                  "uid": "35240-da3e7899-b611-4615-a97e-6867beda2a8a"
+                },
+                {
+                  "name": "Mark Notification Viewed",
+                  "id": "c132bdd2-17a1-46f2-8e79-1f0d56c4df48",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/3/notification/:notificationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "notification",
+                        ":notificationId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d111d491-a33e-4b68-ad3a-933e826418d2",
+                          "key": "notificationId",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b60a15a9-1ae4-4604-a687-1925485ebaba",
+                      "name": "Notification Marked Viewed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/notification/:notificationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "notification",
+                            ":notificationId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "notificationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:06:57.000Z",
+                      "updatedAt": "2026-10-21T20:06:57.000Z",
+                      "uid": "35240-b60a15a9-1ae4-4604-a687-1925485ebaba"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:06:57.000Z",
+                  "updatedAt": "2026-10-21T20:06:57.000Z",
+                  "uid": "35240-c132bdd2-17a1-46f2-8e79-1f0d56c4df48"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "be6e4510-3e63-44b4-9222-0ee857e6eabb",
+              "createdAt": "2026-10-21T20:06:57.000Z",
+              "updatedAt": "2026-10-21T20:06:57.000Z",
+              "uid": "35240-be6e4510-3e63-44b4-9222-0ee857e6eabb"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "519a9e11-faea-4b38-9954-a2cb7bc01b24",
-          "name": "Mark Notification Viewed",
-          "request": {
-            "name": "Mark Notification Viewed",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "notification",
-                ":notificationId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "notificationId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "42ed3394-ccb6-4d72-a16b-016753d99f80",
-              "name": "Notification Marked Viewed.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "notification",
-                    ":notificationId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "notificationId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "c68cae08-9a18-4090-83bf-83f999076f47",
+          "createdAt": "2026-10-21T20:06:57.000Z",
+          "updatedAt": "2026-10-21T20:06:57.000Z",
+          "uid": "35240-c68cae08-9a18-4090-83bf-83f999076f47"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.imgur.com",
-      "key": "baseUrl"
+      "id": "8e020884-a8ad-4fd3-af82-a207a6b70d8f",
+      "createdAt": "2026-10-21T20:06:57.000Z",
+      "updatedAt": "2026-10-21T20:06:57.000Z",
+      "uid": "35240-8e020884-a8ad-4fd3-af82-a207a6b70d8f"
     }
   ],
   "auth": {
@@ -266,25 +284,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "6247f968-195b-4286-8b62-4490776456e3",
-    "name": "Imgur Notification API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.imgur.com"
     }
-  }
+  ]
 }

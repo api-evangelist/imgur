@@ -1,92 +1,103 @@
 {
+  "info": {
+    "_postman_id": "51e16126-4a7a-49cb-971c-eed80cb20a86",
+    "name": "Imgur Memegen API",
+    "description": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform \u2014 uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:49.000Z",
+    "updatedAt": "2026-10-21T20:06:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-51e16126-4a7a-49cb-971c-eed80cb20a86"
+  },
   "item": [
     {
-      "id": "43c235dc-fc4c-4c30-91f5-169d0bea0e0e",
-      "name": "Memegen",
-      "description": {
-        "content": "Meme generation and meme defaults.",
-        "type": "text/plain"
-      },
+      "name": "3",
       "item": [
         {
-          "id": "1e8f4fa9-4fda-44d0-bcc1-f4afcc181f91",
-          "name": "Get Meme Defaults",
-          "request": {
-            "name": "Get Meme Defaults",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "memegen",
-                "defaults"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "memegen",
+          "item": [
             {
-              "id": "cd0bba0e-d22d-4a9a-b79b-3475a406d3af",
-              "name": "Default Meme List.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "memegen",
-                    "defaults"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "defaults",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "Get Meme Defaults",
+                  "id": "89d0e247-2bdd-4e2d-bc7e-d9756cfa6263",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/3/memegen/defaults",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "memegen",
+                        "defaults"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "073258e6-0df5-4e71-95d0-12257496fad5",
+                      "name": "Default Meme List.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/memegen/defaults",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "memegen",
+                            "defaults"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T20:06:50.000Z",
+                      "updatedAt": "2026-10-21T20:06:50.000Z",
+                      "uid": "35240-073258e6-0df5-4e71-95d0-12257496fad5"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:06:50.000Z",
+                  "updatedAt": "2026-10-21T20:06:50.000Z",
+                  "uid": "35240-89d0e247-2bdd-4e2d-bc7e-d9756cfa6263"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "504ac835-dd7b-43c8-b5cc-0ca91372ea5f",
+              "createdAt": "2026-10-21T20:06:50.000Z",
+              "updatedAt": "2026-10-21T20:06:50.000Z",
+              "uid": "35240-504ac835-dd7b-43c8-b5cc-0ca91372ea5f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "bc8d4da2-1ffa-43f6-a88b-58870ebbd0c9",
+          "createdAt": "2026-10-21T20:06:50.000Z",
+          "updatedAt": "2026-10-21T20:06:50.000Z",
+          "uid": "35240-bc8d4da2-1ffa-43f6-a88b-58870ebbd0c9"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.imgur.com",
-      "key": "baseUrl"
+      "id": "6f8171a3-6749-4768-8609-ddc1aeea9700",
+      "createdAt": "2026-10-21T20:06:50.000Z",
+      "updatedAt": "2026-10-21T20:06:50.000Z",
+      "uid": "35240-6f8171a3-6749-4768-8609-ddc1aeea9700"
     }
   ],
   "auth": {
@@ -94,25 +105,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "dbac5774-30ae-48db-b006-fa8e8ebb51d8",
-    "name": "Imgur Memegen API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.imgur.com"
     }
-  }
+  ]
 }

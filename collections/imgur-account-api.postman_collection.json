@@ -1,1050 +1,1044 @@
 {
+  "info": {
+    "_postman_id": "cc3ffe15-e0e5-40e9-8cea-db2cc71ed3f1",
+    "name": "Imgur Account API",
+    "description": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform \u2014 uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:08.000Z",
+    "updatedAt": "2026-10-21T20:06:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cc3ffe15-e0e5-40e9-8cea-db2cc71ed3f1"
+  },
   "item": [
     {
-      "id": "e55ffc7a-20df-4d57-b97c-ef8440a60f73",
-      "name": "Account",
-      "description": {
-        "content": "Account-scoped data: profile, images, albums, favorites, settings, notifications.",
-        "type": "text/plain"
-      },
+      "name": "3",
       "item": [
         {
-          "id": "d4627529-2dd1-4ba7-b53c-2b86b38f1fc0",
-          "name": "Get Account",
-          "request": {
-            "name": "Get Account",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "account",
-                ":username"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) Account username, or \"me\" for the authenticated user."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "account",
+          "item": [
             {
-              "id": "31fbf039-ad72-4a34-a8fb-6f96de40088b",
-              "name": "Account Profile.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "account",
-                    ":username"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "{username}",
+              "item": [
+                {
+                  "name": "images",
+                  "item": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) Account username, or \"me\" for the authenticated user."
+                      "name": "Get Account Images",
+                      "id": "6baceb27-6250-47e8-9a98-1815347ab1e2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/account/:username/images",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "account",
+                            ":username",
+                            "images"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b456a471-35d0-459c-b381-24b04cc3b937",
+                              "key": "username",
+                              "value": "<string>",
+                              "description": "(Required) Account username, or \"me\" for the authenticated user."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "04827a23-f212-4911-9506-ccb4e89c1e18",
+                          "name": "Image List.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/account/:username/images",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "account",
+                                ":username",
+                                "images"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "username"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-04827a23-f212-4911-9506-ccb4e89c1e18"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-6baceb27-6250-47e8-9a98-1815347ab1e2"
                     }
-                  ]
+                  ],
+                  "id": "798db328-f8d0-4ee5-9ff3-2d279f5d9913",
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-798db328-f8d0-4ee5-9ff3-2d279f5d9913"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                {
+                  "name": "albums",
+                  "item": [
+                    {
+                      "name": "Get Account Albums",
+                      "id": "0d13b15d-82c0-40ea-b9e7-ddda990cc74f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/account/:username/albums",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "account",
+                            ":username",
+                            "albums"
+                          ],
+                          "variable": [
+                            {
+                              "id": "02e8c800-5d3f-48e0-8ef3-8a954095bebf",
+                              "key": "username",
+                              "value": "<string>",
+                              "description": "(Required) Account username, or \"me\" for the authenticated user."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6874c70e-0835-4a85-989a-236f2b34fb7a",
+                          "name": "Album List.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/account/:username/albums",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "account",
+                                ":username",
+                                "albums"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "username"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-6874c70e-0835-4a85-989a-236f2b34fb7a"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-0d13b15d-82c0-40ea-b9e7-ddda990cc74f"
+                    }
+                  ],
+                  "id": "cf5b0f9e-465c-4415-936a-c201b483ec40",
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-cf5b0f9e-465c-4415-936a-c201b483ec40"
+                },
+                {
+                  "name": "comments",
+                  "item": [
+                    {
+                      "name": "Get Account Comments",
+                      "id": "2b494592-b316-4cba-b57d-60238520ce0a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/account/:username/comments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "account",
+                            ":username",
+                            "comments"
+                          ],
+                          "variable": [
+                            {
+                              "id": "190b1b0f-92ef-4e02-89ad-f2615f4a5e8c",
+                              "key": "username",
+                              "value": "<string>",
+                              "description": "(Required) Account username, or \"me\" for the authenticated user."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "30d0bcd8-6439-4de0-bdf2-671983a123ad",
+                          "name": "Comment List.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/account/:username/comments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "account",
+                                ":username",
+                                "comments"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "username"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-30d0bcd8-6439-4de0-bdf2-671983a123ad"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-2b494592-b316-4cba-b57d-60238520ce0a"
+                    }
+                  ],
+                  "id": "f96bf79b-8d68-4734-aac0-755b0db2a85f",
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-f96bf79b-8d68-4734-aac0-755b0db2a85f"
+                },
+                {
+                  "name": "favorites",
+                  "item": [
+                    {
+                      "name": "Get Account Favorites",
+                      "id": "cd11f74c-0ae2-4e9f-817a-c83791df24e8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/account/:username/favorites",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "account",
+                            ":username",
+                            "favorites"
+                          ],
+                          "variable": [
+                            {
+                              "id": "37c0af3c-a80f-4fcc-8da0-45c96bde4f58",
+                              "key": "username",
+                              "value": "<string>",
+                              "description": "(Required) Account username, or \"me\" for the authenticated user."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "616ec08d-6be5-4ccd-b17c-523daf5bccce",
+                          "name": "Favorite List.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/account/:username/favorites",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "account",
+                                ":username",
+                                "favorites"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "username"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-616ec08d-6be5-4ccd-b17c-523daf5bccce"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-cd11f74c-0ae2-4e9f-817a-c83791df24e8"
+                    }
+                  ],
+                  "id": "150dc9d7-7a89-48c1-a221-ca010cb31a2f",
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-150dc9d7-7a89-48c1-a221-ca010cb31a2f"
+                },
+                {
+                  "name": "gallery_favorites",
+                  "item": [
+                    {
+                      "name": "Get Gallery Favorites",
+                      "id": "3dc8229a-ca54-4b20-aa3e-117cb3ec0ca6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/account/:username/gallery_favorites",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "account",
+                            ":username",
+                            "gallery_favorites"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4d38a664-8281-4698-b5d9-2003ef837379",
+                              "key": "username",
+                              "value": "<string>",
+                              "description": "(Required) Account username, or \"me\" for the authenticated user."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1277736c-c7b6-42a7-b15d-819edd054ccf",
+                          "name": "Gallery Favorite List.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/account/:username/gallery_favorites",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "account",
+                                ":username",
+                                "gallery_favorites"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "username"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-1277736c-c7b6-42a7-b15d-819edd054ccf"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-3dc8229a-ca54-4b20-aa3e-117cb3ec0ca6"
+                    }
+                  ],
+                  "id": "5b90a64a-4b5a-425e-89e9-7b102aba88b2",
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-5b90a64a-4b5a-425e-89e9-7b102aba88b2"
+                },
+                {
+                  "name": "submissions",
+                  "item": [
+                    {
+                      "name": "Get Account Submissions",
+                      "id": "124433ba-870d-4c8c-aa15-48e1a7f69f78",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/account/:username/submissions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "account",
+                            ":username",
+                            "submissions"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0d46a864-91fd-48ee-a489-1ecabbdd3293",
+                              "key": "username",
+                              "value": "<string>",
+                              "description": "(Required) Account username, or \"me\" for the authenticated user."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "23989d94-7961-42d1-ba4b-7fded2320ff6",
+                          "name": "Submission List.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/account/:username/submissions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "account",
+                                ":username",
+                                "submissions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "username"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-23989d94-7961-42d1-ba4b-7fded2320ff6"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-124433ba-870d-4c8c-aa15-48e1a7f69f78"
+                    }
+                  ],
+                  "id": "569fcd80-3140-4bc3-865c-00f3e221e29c",
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-569fcd80-3140-4bc3-865c-00f3e221e29c"
+                },
+                {
+                  "name": "settings",
+                  "item": [
+                    {
+                      "name": "Get Account Settings",
+                      "id": "4a089275-854a-422e-b31e-97ae92635559",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/account/:username/settings",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "account",
+                            ":username",
+                            "settings"
+                          ],
+                          "variable": [
+                            {
+                              "id": "baaad4fc-4dd0-4b89-83a2-cbfbca439132",
+                              "key": "username",
+                              "value": "<string>",
+                              "description": "(Required) Account username, or \"me\" for the authenticated user."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9e0587f2-6b6c-46d7-af33-1ea6de1b3d7f",
+                          "name": "Settings.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/account/:username/settings",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "account",
+                                ":username",
+                                "settings"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "username"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-9e0587f2-6b6c-46d7-af33-1ea6de1b3d7f"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-4a089275-854a-422e-b31e-97ae92635559"
                     },
-                    "key": "Authorization",
-                    "value": "<API Key>"
+                    {
+                      "name": "Update Account Settings",
+                      "id": "f4da8e8a-45d5-403b-875d-0d241c9ccca3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "key": "bio",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "public_images",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "messaging_enabled",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "album_privacy",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "accepted_gallery_terms",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "username",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "show_mature",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "newsletter_subscribed",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/3/account/:username/settings",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "account",
+                            ":username",
+                            "settings"
+                          ],
+                          "variable": [
+                            {
+                              "id": "aa4ff34d-aa7b-4634-9a0f-064448d721c3",
+                              "key": "username",
+                              "value": "<string>",
+                              "description": "(Required) Account username, or \"me\" for the authenticated user."
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "45c349e0-a459-4adf-8ae3-6cd73c715f04",
+                          "name": "Settings Updated.",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "key": "bio",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "public_images",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "messaging_enabled",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "album_privacy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "accepted_gallery_terms",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "username",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "show_mature",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "newsletter_subscribed",
+                                  "value": "<boolean>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/3/account/:username/settings",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "account",
+                                ":username",
+                                "settings"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "username"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-45c349e0-a459-4adf-8ae3-6cd73c715f04"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-f4da8e8a-45d5-403b-875d-0d241c9ccca3"
+                    }
+                  ],
+                  "id": "96c53138-991f-47d8-ad07-2ff8e883ae61",
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-96c53138-991f-47d8-ad07-2ff8e883ae61"
+                },
+                {
+                  "name": "Get Account",
+                  "id": "e67953d2-a1ca-4efa-b960-64b938c92b01",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/3/account/:username",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "account",
+                        ":username"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0f68078f-2b6d-4448-9381-833181b708ef",
+                          "key": "username",
+                          "value": "<string>",
+                          "description": "(Required) Account username, or \"me\" for the authenticated user."
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "ff367083-0885-4aae-a241-6d050f7d34ce",
+                      "name": "Account Profile.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/account/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "account",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"description\": \"Operation-specific payload.\"\n  },\n  \"success\": \"<boolean>\",\n  \"status\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-ff367083-0885-4aae-a241-6d050f7d34ce"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-e67953d2-a1ca-4efa-b960-64b938c92b01"
                 }
               ],
-              "body": "{\n  \"data\": {},\n  \"success\": true,\n  \"status\": 5576\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "a3defc1f-1975-485c-ac66-be4861ff7883",
+              "createdAt": "2026-10-21T20:06:09.000Z",
+              "updatedAt": "2026-10-21T20:06:09.000Z",
+              "uid": "35240-a3defc1f-1975-485c-ac66-be4861ff7883"
+            },
+            {
+              "name": "me",
+              "item": [
+                {
+                  "name": "notifications",
+                  "item": [
+                    {
+                      "name": "Get Account Notifications",
+                      "id": "d2cf4855-52fa-49ab-8911-9b05927c4db7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/3/account/me/notifications",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "3",
+                            "account",
+                            "me",
+                            "notifications"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "fbbefdfc-19a2-4ff4-91fe-f4fe50341cee",
+                          "name": "Notification List.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/3/account/me/notifications",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "3",
+                                "account",
+                                "me",
+                                "notifications"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-fbbefdfc-19a2-4ff4-91fe-f4fe50341cee"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-d2cf4855-52fa-49ab-8911-9b05927c4db7"
+                    }
+                  ],
+                  "id": "08ea64e4-e95a-4799-9fe7-ea290607f7fc",
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-08ea64e4-e95a-4799-9fe7-ea290607f7fc"
+                }
+              ],
+              "id": "39fac0f2-d7cd-4125-8ac6-bbcf8038ec90",
+              "createdAt": "2026-10-21T20:06:09.000Z",
+              "updatedAt": "2026-10-21T20:06:09.000Z",
+              "uid": "35240-39fac0f2-d7cd-4125-8ac6-bbcf8038ec90"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "cfae53ac-368a-43bd-a813-30aad173a1ce",
+          "createdAt": "2026-10-21T20:06:09.000Z",
+          "updatedAt": "2026-10-21T20:06:09.000Z",
+          "uid": "35240-cfae53ac-368a-43bd-a813-30aad173a1ce"
         },
         {
-          "id": "b4e11f35-e0ca-4cad-b4bb-e4c060f4f10b",
-          "name": "Get Account Images",
-          "request": {
-            "name": "Get Account Images",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "account",
-                ":username",
-                "images"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) Account username, or \"me\" for the authenticated user."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "credits",
+          "item": [
             {
-              "id": "f4840cae-08ce-4609-8e44-262d24a5129c",
-              "name": "Image List.",
-              "originalRequest": {
+              "name": "Get Rate Limit Credits",
+              "id": "4cbc914b-eac3-4db9-b31c-e94db79390bb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "3",
-                    "account",
-                    ":username",
-                    "images"
-                  ],
+                  "raw": "{{baseUrl}}/3/credits",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) Account username, or \"me\" for the authenticated user."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "97ea1a91-b7b9-4635-81b0-678f21253a22",
-          "name": "Get Account Albums",
-          "request": {
-            "name": "Get Account Albums",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "account",
-                ":username",
-                "albums"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) Account username, or \"me\" for the authenticated user."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f27fc12a-6bb3-45fd-a6d8-dce3e57184d5",
-              "name": "Album List.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "account",
-                    ":username",
-                    "albums"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) Account username, or \"me\" for the authenticated user."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e65dc619-4f72-4641-aba0-fa8b86c639b9",
-          "name": "Get Account Comments",
-          "request": {
-            "name": "Get Account Comments",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "account",
-                ":username",
-                "comments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) Account username, or \"me\" for the authenticated user."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f4d8eaee-3a07-4c2e-8e04-0b4650dc213a",
-              "name": "Comment List.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "account",
-                    ":username",
-                    "comments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) Account username, or \"me\" for the authenticated user."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9ca0b20d-cb0b-4a71-810b-f1e2b9ccb11f",
-          "name": "Get Account Favorites",
-          "request": {
-            "name": "Get Account Favorites",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "account",
-                ":username",
-                "favorites"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) Account username, or \"me\" for the authenticated user."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b71e4a25-5dfe-41b1-984e-8cbfe1349da4",
-              "name": "Favorite List.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "account",
-                    ":username",
-                    "favorites"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) Account username, or \"me\" for the authenticated user."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9b41f73f-72d7-493b-9fb6-4342b901fb7b",
-          "name": "Get Gallery Favorites",
-          "request": {
-            "name": "Get Gallery Favorites",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "account",
-                ":username",
-                "gallery_favorites"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) Account username, or \"me\" for the authenticated user."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "a7d62bbc-514a-4070-b114-0172eb1a6a82",
-              "name": "Gallery Favorite List.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "account",
-                    ":username",
-                    "gallery_favorites"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) Account username, or \"me\" for the authenticated user."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9bfcc911-a6ad-4d93-8bb9-b960dc174ded",
-          "name": "Get Account Submissions",
-          "request": {
-            "name": "Get Account Submissions",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "account",
-                ":username",
-                "submissions"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) Account username, or \"me\" for the authenticated user."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9084ee92-363c-49e2-b755-76f959250d3e",
-              "name": "Submission List.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "account",
-                    ":username",
-                    "submissions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) Account username, or \"me\" for the authenticated user."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d178978a-5a17-4492-a703-213f0a41c155",
-          "name": "Get Account Settings",
-          "request": {
-            "name": "Get Account Settings",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "account",
-                ":username",
-                "settings"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) Account username, or \"me\" for the authenticated user."
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "4e331881-51e4-44ad-8cba-d47a061901fa",
-              "name": "Settings.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "account",
-                    ":username",
-                    "settings"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) Account username, or \"me\" for the authenticated user."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "cc0dd928-3298-44ee-9957-a0f67f93fa04",
-          "name": "Update Account Settings",
-          "request": {
-            "name": "Update Account Settings",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "account",
-                ":username",
-                "settings"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "username",
-                  "description": "(Required) Account username, or \"me\" for the authenticated user."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "disabled": false,
-                  "key": "bio",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "public_images",
-                  "value": "<boolean>"
-                },
-                {
-                  "disabled": false,
-                  "key": "messaging_enabled",
-                  "value": "<boolean>"
-                },
-                {
-                  "disabled": false,
-                  "key": "album_privacy",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "accepted_gallery_terms",
-                  "value": "<boolean>"
-                },
-                {
-                  "disabled": false,
-                  "key": "username",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "show_mature",
-                  "value": "<boolean>"
-                },
-                {
-                  "disabled": false,
-                  "key": "newsletter_subscribed",
-                  "value": "<boolean>"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "327e1dcc-0814-45b7-b4f7-d7973bcf2bf2",
-              "name": "Settings Updated.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "account",
-                    ":username",
-                    "settings"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "username",
-                      "description": "(Required) Account username, or \"me\" for the authenticated user."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "disabled": false,
-                      "key": "bio",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "key": "public_images",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "disabled": false,
-                      "key": "messaging_enabled",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "disabled": false,
-                      "key": "album_privacy",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "key": "accepted_gallery_terms",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "disabled": false,
-                      "key": "username",
-                      "value": "<string>"
-                    },
-                    {
-                      "disabled": false,
-                      "key": "show_mature",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "disabled": false,
-                      "key": "newsletter_subscribed",
-                      "value": "<boolean>"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6221d466-a72b-49a5-b727-812181e9d319",
-          "name": "Get Account Notifications",
-          "request": {
-            "name": "Get Account Notifications",
-            "description": {},
-            "url": {
-              "path": [
-                "3",
-                "account",
-                "me",
-                "notifications"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9c5e701a-f795-4efd-8146-30ef185ffe3f",
-              "name": "Notification List.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "3",
-                    "account",
-                    "me",
-                    "notifications"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2ddc8007-a645-4bd7-a85c-d2ed62781e2a",
-          "name": "Get Rate Limit Credits",
-          "request": {
-            "name": "Get Rate Limit Credits",
-            "description": {
-              "content": "Return remaining client and user credits.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "3",
-                "credits"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "64bf623b-f165-4803-b892-9ecf6e792dc1",
-              "name": "Credit Status.",
-              "originalRequest": {
-                "url": {
                   "path": [
                     "3",
                     "credits"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Return remaining client and user credits."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "def7f490-45e4-4460-8eee-68e7bff8363c",
+                  "name": "Credit Status.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/3/credits",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "3",
+                        "credits"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-def7f490-45e4-4460-8eee-68e7bff8363c"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T20:06:09.000Z",
+              "updatedAt": "2026-10-21T20:06:09.000Z",
+              "uid": "35240-4cbc914b-eac3-4db9-b31c-e94db79390bb"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "7be73c69-85e7-4a2b-a249-3bfa47a8b573",
+          "createdAt": "2026-10-21T20:06:09.000Z",
+          "updatedAt": "2026-10-21T20:06:09.000Z",
+          "uid": "35240-7be73c69-85e7-4a2b-a249-3bfa47a8b573"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.imgur.com",
-      "key": "baseUrl"
+      "id": "e3ea41c6-d641-489c-833e-0a00c49de51d",
+      "createdAt": "2026-10-21T20:06:09.000Z",
+      "updatedAt": "2026-10-21T20:06:09.000Z",
+      "uid": "35240-e3ea41c6-d641-489c-833e-0a00c49de51d"
     }
   ],
   "auth": {
@@ -1052,25 +1046,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "77711bde-1bf4-4bd6-b27c-80e542974c4f",
-    "name": "Imgur Account API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.imgur.com"
     }
-  }
+  ]
 }

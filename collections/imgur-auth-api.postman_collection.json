@@ -1,292 +1,281 @@
 {
+  "info": {
+    "_postman_id": "7e1fd1dc-ed62-4181-b8a2-7ce1cae7c4a4",
+    "name": "Imgur Auth API",
+    "description": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform \u2014 uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:19.000Z",
+    "updatedAt": "2026-10-21T20:06:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7e1fd1dc-ed62-4181-b8a2-7ce1cae7c4a4"
+  },
   "item": [
     {
-      "id": "c4e433e1-9c59-42b3-a35d-5d46745c176b",
-      "name": "Auth",
-      "description": {
-        "content": "OAuth2 token issuance and refresh.",
-        "type": "text/plain"
-      },
+      "name": "oauth2",
       "item": [
         {
-          "id": "8c28cce0-7e5d-45db-841d-9fb1f0700fa1",
-          "name": "Authorize User",
-          "request": {
-            "name": "Authorize User",
-            "description": {
-              "content": "Begin the OAuth2 authorization-code or token grant flow.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "oauth2",
-                "authorize"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "client_id",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "response_type",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "state",
-                  "value": "<string>"
-                }
-              ],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "authorize",
+          "item": [
             {
-              "id": "bbfaacb5-8c9c-4697-a06f-a7f69334d397",
-              "name": "Redirect To Configured Callback With Code Or Token.",
-              "originalRequest": {
+              "name": "Authorize User",
+              "id": "0432442c-57de-40d2-88a1-4cc2bbbee7a2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
                 "url": {
+                  "raw": "{{baseUrl}}/oauth2/authorize?client_id=<string>&response_type=token&state=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "oauth2",
                     "authorize"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "(Required) ",
                       "key": "client_id",
                       "value": "<string>"
                     },
                     {
+                      "description": "(Required) ",
                       "key": "response_type",
-                      "value": "<string>"
+                      "value": "token"
                     },
                     {
                       "key": "state",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Begin the OAuth2 authorization-code or token grant flow."
               },
-              "status": "Found",
-              "code": 302,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "5b7c25bc-4d70-4212-80a1-eeaf212d012c",
+                  "name": "Redirect To Configured Callback With Code Or Token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth2/authorize?client_id=<string>&response_type=token&state=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth2",
+                        "authorize"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "response_type",
+                          "value": "token"
+                        },
+                        {
+                          "key": "state",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Found",
+                  "code": 302,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:06:20.000Z",
+                  "updatedAt": "2026-10-21T20:06:20.000Z",
+                  "uid": "35240-5b7c25bc-4d70-4212-80a1-eeaf212d012c"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T20:06:20.000Z",
+              "updatedAt": "2026-10-21T20:06:20.000Z",
+              "uid": "35240-0432442c-57de-40d2-88a1-4cc2bbbee7a2"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "d8556074-b1ac-4ff8-9c06-fec00648f85b",
+          "createdAt": "2026-10-21T20:06:20.000Z",
+          "updatedAt": "2026-10-21T20:06:20.000Z",
+          "uid": "35240-d8556074-b1ac-4ff8-9c06-fec00648f85b"
         },
         {
-          "id": "a1ecdfea-bdf4-42d2-898d-0387b02244a9",
-          "name": "Issue Access Token",
-          "request": {
-            "name": "Issue Access Token",
-            "description": {
-              "content": "Exchange an authorization code, refresh token, or PIN for an access token.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "oauth2",
-                "token"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "disabled": false,
-                  "key": "client_id",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "client_secret",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "grant_type",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "code",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "refresh_token",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "pin",
-                  "value": "<string>"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "token",
+          "item": [
             {
-              "id": "7aecd8cf-51bc-4ccf-aed0-5e722379b25c",
-              "name": "New Access Token Issued.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "oauth2",
-                    "token"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+              "name": "Issue Access Token",
+              "id": "e9a91271-9e5b-4756-8fb7-7989f09433c4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "urlencoded",
                   "urlencoded": [
                     {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
+                      "description": "(Required) ",
                       "key": "client_id",
                       "value": "<string>"
                     },
                     {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
+                      "description": "(Required) ",
                       "key": "client_secret",
                       "value": "<string>"
                     },
                     {
-                      "disabled": false,
-                      "description": {
-                        "content": "(Required) ",
-                        "type": "text/plain"
-                      },
+                      "description": "(Required) ",
                       "key": "grant_type",
-                      "value": "<string>"
+                      "value": "authorization_code"
                     },
                     {
-                      "disabled": false,
                       "key": "code",
                       "value": "<string>"
                     },
                     {
-                      "disabled": false,
                       "key": "refresh_token",
                       "value": "<string>"
                     },
                     {
-                      "disabled": false,
                       "key": "pin",
                       "value": "<string>"
                     }
                   ]
-                }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/oauth2/token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth2",
+                    "token"
+                  ]
+                },
+                "description": "Exchange an authorization code, refresh token, or PIN for an access token."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "341960dc-06e3-444d-a297-887ea9fca44a",
+                  "name": "New Access Token Issued.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "grant_type",
+                          "value": "authorization_code"
+                        },
+                        {
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "refresh_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "pin",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth2/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth2",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"access_token\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"expires_in\": \"<integer>\",\n  \"token_type\": \"<string>\",\n  \"account_id\": \"<integer>\",\n  \"account_username\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:06:20.000Z",
+                  "updatedAt": "2026-10-21T20:06:20.000Z",
+                  "uid": "35240-341960dc-06e3-444d-a297-887ea9fca44a"
                 }
               ],
-              "body": "{\n  \"access_token\": \"string\",\n  \"refresh_token\": \"string\",\n  \"expires_in\": 3291,\n  \"token_type\": \"string\",\n  \"account_id\": 8875,\n  \"account_username\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:06:20.000Z",
+              "updatedAt": "2026-10-21T20:06:20.000Z",
+              "uid": "35240-e9a91271-9e5b-4756-8fb7-7989f09433c4"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "6b25617a-bbf7-493b-9da7-5ab06f625f92",
+          "createdAt": "2026-10-21T20:06:20.000Z",
+          "updatedAt": "2026-10-21T20:06:20.000Z",
+          "uid": "35240-6b25617a-bbf7-493b-9da7-5ab06f625f92"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.imgur.com",
-      "key": "baseUrl"
+      "id": "f437626c-37b8-406a-9efe-d8a76bb9eb50",
+      "createdAt": "2026-10-21T20:06:20.000Z",
+      "updatedAt": "2026-10-21T20:06:20.000Z",
+      "uid": "35240-f437626c-37b8-406a-9efe-d8a76bb9eb50"
     }
   ],
   "auth": {
@@ -294,25 +283,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "08397395-d0e8-4acf-9e64-a512eb39cdd5",
-    "name": "Imgur Auth API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Imgur is an online image and album hosting platform. The Imgur API (v3) is a RESTful HTTP/JSON API that exposes the platform — uploading, retrieving, voting, commenting, galleries, accounts, and tags. Anonymous reads/writes are supported with a Client-ID, and per-user actions require OAuth2 access tokens.\n\nContact Support:\n Name: Imgur API Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.imgur.com"
     }
-  }
+  ]
 }
